@@ -1,7 +1,6 @@
 package com.yelanyanyu.io;
 
 import cn.hutool.core.lang.Assert;
-import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,7 +47,7 @@ public class ResourceResolver {
      * @param resources
      * @param basePackage     例如， com.yelanyanyu
      * @param basePackagePath 将上面的字符改为 com/yelanyanyu
-     * @param mapper
+     * @param mapper 函数式接口实现
      * @param <R>
      */
     private <R> void scan0(List<R> resources, String basePackage, String basePackagePath, Function<Resource, R> mapper) {
@@ -75,11 +74,11 @@ public class ResourceResolver {
 
     /**
      *
-     * @param isJar
-     * @param resource
-     * @param root
+     * @param isJar true: 是 Jar类型的资源
+     * @param resource 结果集
+     * @param root 需要从哪个路径下开始扫描
      * @param base 类路径：..\classes\
-     * @param mapper
+     * @param mapper 函数式接口实现
      * @param <R>
      */
     private <R> void scanPackage(boolean isJar, List<R> resource, Path root, String base, Function<Resource, R> mapper) {
