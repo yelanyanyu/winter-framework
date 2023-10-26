@@ -23,7 +23,7 @@ public class ResourceResolverTest {
                         replace("/", ".").replace("\\", ".");
             }
             return null;
-        });
+        }).forEach(System.out::println);
     }
 
     @Test

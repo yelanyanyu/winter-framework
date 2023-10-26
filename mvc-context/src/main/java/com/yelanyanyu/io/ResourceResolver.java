@@ -92,7 +92,6 @@ public class ResourceResolver {
                 } else {
                     res = new Resource("file:" + base, removeLeadingSlash(fileOfPath.toString().substring(base.length())));
                 }
-                System.out.println("res = " + res);
                 R apply = mapper.apply(res);
                 if (apply != null) {
                     resource.add(apply);

@@ -13,7 +13,7 @@ public class Main {
     public static void main(final String[] argv) throws IOException, URISyntaxException {
         String basePackage = "cn.hutool";
         String basePackage1 = "com.yelanyanyu";
-        ResourceResolver resourceResolver = new ResourceResolver(basePackage);
+        ResourceResolver resourceResolver = new ResourceResolver(basePackage1);
         List<String> scan = resourceResolver.scan(res -> {
             String name = res.name(); // 资源名称"org/example/Hello.class"
             if (name.endsWith(".class")) { // 如果以.class结尾
