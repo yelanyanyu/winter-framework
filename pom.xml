@@ -22,9 +22,15 @@
         <hutool-all.version>5.8.20</hutool-all.version>
         <lombok.version>1.18.20</lombok.version>
         <snakeyaml.version>2.0</snakeyaml.version>
+        <jakarta.annotation.version>2.1.1</jakarta.annotation.version>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>jakarta.annotation</groupId>
+                <artifactId>jakarta.annotation-api</artifactId>
+                <version>${jakarta.annotation.version}</version>
+            </dependency>
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
