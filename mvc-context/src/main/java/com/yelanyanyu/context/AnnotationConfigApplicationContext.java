@@ -139,6 +139,12 @@ public class AnnotationConfigApplicationContext {
         return value;
     }
 
+    /**
+     * put the bean with annotation @Bean into def map
+     * @param beanNameFactory name of bean with @Configuration and has @Bean method
+     * @param clazz
+     * @param defs
+     */
     void scanFactoryMethods(String beanNameFactory, Class<?> clazz, Map<String, BeanDefinition> defs) {
         for (Method method : clazz.getDeclaredMethods()) {
             Bean bean = method.getAnnotation(Bean.class);
@@ -157,6 +163,11 @@ public class AnnotationConfigApplicationContext {
         }
     }
 
+    /**
+     * add bean def into beans, multiple beans are not allowed
+     * @param defs beans map
+     * @param def bean def
+     */
     void addBeanDefinition(Map<String, BeanDefinition> defs, BeanDefinition def) {
         //判断bean是否重复
         if (defs.put(def.getName(), def) != null)
@@ -164,10 +175,20 @@ public class AnnotationConfigApplicationContext {
     }
 
 
+    /**
+     * 得到所有类型为type的bean信息，包括声明类型为type的bean
+     * @param type ABC.class
+     * @return list
+     */
     List<BeanDefinition> findBeanDefinitions(Class<?> type) {
         return this.beans.values().stream().filter(def -> type.isAssignableFrom(def.getBeanClass())).sorted().collect(Collectors.toList());
     }
 
+    /**
+     * 通过 get(ABC.class)的方法得到唯一的单例bean
+     * @param type ABC.class
+     * @return beandef
+     */
     @Nullable
     public BeanDefinition findBeanDefinition(Class<?> type) {
         List<BeanDefinition> defs = findBeanDefinitions(type);

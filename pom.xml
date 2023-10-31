@@ -23,9 +23,15 @@
         <lombok.version>1.18.20</lombok.version>
         <snakeyaml.version>2.0</snakeyaml.version>
         <jakarta.annotation.version>2.1.1</jakarta.annotation.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
             <dependency>
                 <groupId>jakarta.annotation</groupId>
                 <artifactId>jakarta.annotation-api</artifactId>

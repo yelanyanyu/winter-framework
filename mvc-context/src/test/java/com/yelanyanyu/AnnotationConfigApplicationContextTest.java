@@ -1,10 +1,8 @@
 package com.yelanyanyu;
 
-import com.bean.class01;
+import com.bean.Class01;
 import com.yelanyanyu.context.AnnotationConfigApplicationContext;
 import org.junit.Test;
-
-import java.util.Set;
 
 /**
  * @author yelanyanyu@zjxu.edu.cn
@@ -13,13 +11,13 @@ import java.util.Set;
 public class AnnotationConfigApplicationContextTest {
     @Test
     public void t1() {
-        AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(class01.class, null);
+        AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(Class01.class, null);
         System.out.println(ioc.getBeans().size());
         ioc.getBeans().values().forEach(System.out::println);
     }
 
     @Test
     public void t2() {
-        System.out.println(class01.class.getSimpleName());
+        System.out.println(Class01.class.getSimpleName());
     }
 }

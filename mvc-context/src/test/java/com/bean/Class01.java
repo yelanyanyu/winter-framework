@@ -8,7 +8,7 @@ import com.yelanyanyu.annotation.*;
  */
 @Import(class02.class)
 @Configuration
-public class class01 {
+public class Class01 {
     @Bean
     public class03 class03() {
         return new class03();

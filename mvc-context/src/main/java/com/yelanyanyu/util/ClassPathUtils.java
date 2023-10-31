@@ -3,6 +3,7 @@ package com.yelanyanyu.util;
 import com.yelanyanyu.annotation.Bean;
 import com.yelanyanyu.exception.BeanDefinitionException;
 import jakarta.annotation.Nullable;
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -49,7 +50,7 @@ public class ClassPathUtils {
     }
 
     public static String getBeanName(Class<?> clazz) {
-        return clazz.getSimpleName();
+        return StringUtils.uncapitalize(clazz.getSimpleName());
     }
 
     public static String getBeanName(Method method) {
@@ -61,7 +62,7 @@ public class ClassPathUtils {
                 name = method.getName();
             }
         }
-        return name;
+        return StringUtils.uncapitalize(name);
     }
 
     @Nullable
