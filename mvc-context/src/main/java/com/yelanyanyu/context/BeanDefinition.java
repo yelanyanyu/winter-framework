@@ -1,17 +1,17 @@
 package com.yelanyanyu.context;
 
-import com.yelanyanyu.annotation.Bean;
 import lombok.*;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.util.Comparator;
 
 /**
  * @author yelanyanyu@zjxu.edu.cn
  * @version 1.0
  */
 @Data
-public class BeanDefinition {
+public class BeanDefinition implements Comparable<BeanDefinition> {
     /**
      * bean实例的名称
      */
@@ -102,5 +102,19 @@ public class BeanDefinition {
         }
         this.initMethod = initMethod;
         this.destoyMethod = destoyMethod;
+    }
+
+    /**
+     * 优先比较order，再比较name的字典序
+     * @param o the object to be compared.
+     * @return
+     */
+    @Override
+    public int compareTo(BeanDefinition o) {
+        int cmp = Integer.compare(this.order, o.order);
+        if (cmp != 0) {
+            return cmp;
+        }
+        return this.name.compareTo(o.name);
     }
 }
