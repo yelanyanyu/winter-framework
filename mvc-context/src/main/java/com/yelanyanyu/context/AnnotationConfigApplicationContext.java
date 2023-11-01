@@ -68,17 +68,28 @@ public class AnnotationConfigApplicationContext {
      * @param def
      */
     void initBean(BeanDefinition def) {
-        callMethod(def.getInstance(), def.getInitMethod(), def.getInitMethodName());
+        try {
+            callMethod(def.getInstance(), def.getInitMethod(), def.getInitMethodName());
+        } catch (InvocationTargetException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
+     * 调用init方法
      *
      * @param instance
      * @param method
      * @param namedMethod
      */
-    private void callMethod(Object instance, Method method, String namedMethod) {
-
+    private void callMethod(Object instance, Method method, String namedMethod) throws InvocationTargetException, IllegalAccessException {
+        if (method != null) {
+            method.invoke(instance);
+        } else if (namedMethod != null) {
+            Method mn = ClassPathUtils.findMethodByName(instance.getClass(), namedMethod);
+            mn.setAccessible(true);
+            mn.invoke(instance);
+        }
     }
 
     /**
@@ -414,6 +425,7 @@ public class AnnotationConfigApplicationContext {
 
     /**
      * findBean 和 getBean 逻辑类似，区别在于前者可以返回null，后者不会返回null，而回直接报错
+     *
      * @param type
      * @param name
      * @return

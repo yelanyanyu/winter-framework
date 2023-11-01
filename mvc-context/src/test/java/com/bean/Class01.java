@@ -1,6 +1,7 @@
 package com.bean;
 
 import com.yelanyanyu.annotation.*;
+import jakarta.annotation.PostConstruct;
 import lombok.Data;
 
 /**
@@ -20,5 +21,10 @@ public class Class01 {
         System.out.println("===================test-bean: " + class04);
         System.out.println("===================test-value: " + name);
         return new class03();
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("++++++++++++++++++");
     }
 }

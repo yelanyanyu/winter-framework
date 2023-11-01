@@ -2,6 +2,7 @@ package com.yelanyanyu;
 
 import com.bean.Class01;
 import com.yelanyanyu.context.AnnotationConfigApplicationContext;
+import com.yelanyanyu.context.BeanDefinition;
 import com.yelanyanyu.io.PropertyResolver;
 import com.yelanyanyu.util.ClassPathUtils;
 import com.yelanyanyu.util.YamlUtils;
@@ -22,7 +23,6 @@ public class AnnotationConfigApplicationContextTest {
         properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("a.properties"));
         PropertyResolver propertyResolver = new PropertyResolver(properties);
         AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(Class01.class, propertyResolver);
-        System.out.println(ioc.getBean("class01"));
 
     }
 

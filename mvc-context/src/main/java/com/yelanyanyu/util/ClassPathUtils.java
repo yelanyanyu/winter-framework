@@ -1,13 +1,16 @@
 package com.yelanyanyu.util;
 
 import com.yelanyanyu.annotation.Bean;
+import com.yelanyanyu.exception.BeanCreationException;
 import com.yelanyanyu.exception.BeanDefinitionException;
 import jakarta.annotation.Nullable;
+import jakarta.annotation.PostConstruct;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author yelanyanyu@zjxu.edu.cn
@@ -67,6 +70,34 @@ public class ClassPathUtils {
 
     @Nullable
     public static Method findAnnotationMethod(Class<? extends Annotation> annoClass, Class<?> beanClass) {
-        return null;
+        List<Method> ms = Arrays.stream(beanClass.getDeclaredMethods()).filter(m -> m.isAnnotationPresent(annoClass)).map(m -> {
+            if (m.getParameterCount() != 0) {
+                throw new BeanDefinitionException(String.format("method '%s.%s' annotated with '@%s' has multiple parameters",
+                        beanClass.getName(), m.getName(), annoClass.getName()));
+            }
+            return m;
+        }).toList();
+        if (ms.isEmpty()) {
+            return null;
+        }
+        if (ms.size() != 1) {
+            throw new BeanDefinitionException(String.format("multiple method annotated with '@%s'",
+                    annoClass.getName()));
+        }
+        return ms.get(0);
+    }
+
+    /**
+     * Get non-arg method by method name
+     * @param clazz
+     * @param methodName
+     * @return
+     */
+    public static Method findMethodByName(Class<?> clazz, String methodName) {
+        try {
+            return clazz.getDeclaredMethod(methodName);
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
