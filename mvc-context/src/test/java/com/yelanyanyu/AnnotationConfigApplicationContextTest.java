@@ -4,6 +4,7 @@ import com.bean.Class01;
 import com.yelanyanyu.context.AnnotationConfigApplicationContext;
 import com.yelanyanyu.io.PropertyResolver;
 import com.yelanyanyu.util.ClassPathUtils;
+import com.yelanyanyu.util.YamlUtils;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -17,9 +18,12 @@ public class AnnotationConfigApplicationContextTest {
     @Test
     public void t1() throws IOException {
         Properties properties = new Properties();
+//        properties.putAll(YamlUtils.loadYamlMapAsPlainMap("test.yml"));
         properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("a.properties"));
         PropertyResolver propertyResolver = new PropertyResolver(properties);
         AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(Class01.class, propertyResolver);
+        System.out.println(ioc.getBean("class01"));
+
     }
 
     @Test
@@ -29,6 +33,8 @@ public class AnnotationConfigApplicationContextTest {
 
     @Test
     public void t3() {
-
+        Properties properties = new Properties();
+        properties.putAll(YamlUtils.loadYamlMapAsPlainMap("test.yml"));
+        properties.stringPropertyNames().forEach(System.out::println);
     }
 }

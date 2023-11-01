@@ -1,5 +1,6 @@
 package com.yelanyanyu.context;
 
+import com.yelanyanyu.exception.BeanCreationException;
 import lombok.*;
 
 import java.lang.reflect.Constructor;
@@ -52,6 +53,14 @@ public class BeanDefinition implements Comparable<BeanDefinition> {
     private String destroyMethodName;
     private Method initMethod;
     private Method destoyMethod;
+
+    public Object getRequiredInstance() {
+        if (this.instance == null) {
+            throw new BeanCreationException(String.format("bean with the class name '%s' and declared type '%s' has not been properly instantiated",
+                    this.name, this.beanClass.getName()));
+        }
+        return this.instance;
+    }
 
     /**
      * 若没有被@Bean注释，则使用这个构造器

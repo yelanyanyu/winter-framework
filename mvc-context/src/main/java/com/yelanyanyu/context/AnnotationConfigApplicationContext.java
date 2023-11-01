@@ -1,7 +1,6 @@
 package com.yelanyanyu.context;
 
 import cn.hutool.core.collection.ConcurrentHashSet;
-import cn.hutool.core.lang.Assert;
 import com.yelanyanyu.annotation.*;
 import com.yelanyanyu.exception.*;
 import com.yelanyanyu.io.PropertyResolver;
@@ -10,7 +9,6 @@ import com.yelanyanyu.util.ClassPathUtils;
 import jakarta.annotation.Nullable;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import org.apache.commons.lang3.builder.StandardToStringStyle;
 
 import java.lang.reflect.*;
 import java.util.List;
@@ -56,6 +54,146 @@ public class AnnotationConfigApplicationContext {
                 createBeanAsEarlySingleton(def);
             }
         });
+
+        // 弱依赖注入
+        this.beans.values().forEach(this::injectBean);
+
+        // 调用@PostConstruct 注释的init方法
+        this.beans.values().forEach(this::initBean);
+    }
+
+    /**
+     * 调用@PostConstruct 注释的init方法
+     *
+     * @param def
+     */
+    void initBean(BeanDefinition def) {
+        callMethod(def.getInstance(), def.getInitMethod(), def.getInitMethodName());
+    }
+
+    /**
+     *
+     * @param instance
+     * @param method
+     * @param namedMethod
+     */
+    private void callMethod(Object instance, Method method, String namedMethod) {
+
+    }
+
+    /**
+     * 注入setter方法和 属性注入的bean
+     *
+     * @param def
+     */
+    void injectBean(BeanDefinition def) {
+        try {
+            injectProperties(def, def.getBeanClass(), def.getInstance());
+        } catch (InvocationTargetException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    void injectProperties(BeanDefinition def, Class<?> clazz, Object bean) throws InvocationTargetException, IllegalAccessException {
+        for (Field f : clazz.getDeclaredFields()) {
+            tryInjectProperties(def, clazz, bean, f);
+        }
+        for (Method m : clazz.getDeclaredMethods()) {
+            tryInjectProperties(def, clazz, bean, m);
+        }
+        Class<?> superclass = clazz.getSuperclass();
+        if (superclass != null) {
+            injectProperties(def, superclass, bean);
+        }
+    }
+
+    /**
+     * 注入单个属性，这个属性可能被@Value注释，也可能被@Autowired注释
+     *
+     * @param def              def
+     * @param clazz            clazz
+     * @param bean             bean
+     * @param accessibleObject field or method
+     */
+    void tryInjectProperties(BeanDefinition def, Class<?> clazz, Object bean, AccessibleObject accessibleObject) throws IllegalAccessException, InvocationTargetException {
+        Value value = accessibleObject.getAnnotation(Value.class);
+        Autowired autowired = accessibleObject.getAnnotation(Autowired.class);
+
+        if (value == null && autowired == null) {
+            return;
+        }
+        // 检查工作
+        Field field = null;
+        // setter 方法
+        Method method = null;
+        if (accessibleObject instanceof Field f) {
+            checkFieldOrMethod(f);
+            f.setAccessible(true);
+            field = f;
+        }
+        if (accessibleObject instanceof Method m) {
+            checkFieldOrMethod(m);
+            if (!m.getName().startsWith("set") || m.getParameterCount() != 1) {
+                throw new BeanDefinitionException(
+                        String.format("cannot inject non-setter method %s for bean %s", m.getName(), def.getBeanClass().getSimpleName())
+                );
+            }
+            m.setAccessible(true);
+            method = m;
+        }
+
+        String accName = field != null ? field.getName() : method.getName();
+        if (value != null && autowired != null) {
+            throw new BeanCreationException(String.format(
+                    "inject error when inject field %s for bean %s: one field cannot have both @Autowired and @Value",
+                    accName, def.getBeanClass().getName()
+            ));
+        }
+
+        Class<?> accType = field != null ? field.getType() : method.getReturnType();
+        if (value != null) {
+            Object property = this.propertyResolver.getProperty(value.value(), accType);
+            if (field != null) {
+                field.set(bean, property);
+            }
+            if (method != null) {
+                method.invoke(bean, property);
+            }
+        }
+
+        if (autowired != null) {
+            String name = autowired.name();
+            boolean required = autowired.value();
+            Object dependObj = name.isEmpty() ? findBean(accType) : findBean(accType, name);
+            if (required && dependObj == null) {
+                throw new UnsatisfiedDependencyException("required but no such bean  " + dependObj);
+            }
+
+            // 注入bean
+            if (dependObj != null) {
+                if (field != null) {
+                    field.set(bean, dependObj);
+                }
+                if (method != null) {
+                    method.invoke(bean, dependObj);
+                }
+            }
+        }
+    }
+
+    /**
+     * 检查是否可以注入 ：1. 静态方法无法注入；2. final方法无法注入
+     *
+     * @param m member
+     */
+    void checkFieldOrMethod(Member m) {
+        int mod = m.getModifiers();
+        if (Modifier.isStatic(mod)) {
+            throw new BeanDefinitionException("cannot inject static field: " + m);
+        }
+        if (Modifier.isFinal(mod)) {
+            throw new BeanDefinitionException("cannot inject final field: " + m);
+        }
     }
 
     /**
@@ -69,7 +207,7 @@ public class AnnotationConfigApplicationContext {
     }
 
     /**
-     * 创建bean实例，但是还未初始化
+     * 创建bean实例，但是还未初始化, 具体来说，创建由构造器和工厂方法注入的bean
      *
      * @param def def
      * @return obj
@@ -135,6 +273,7 @@ public class AnnotationConfigApplicationContext {
         return def.getInstance();
     }
 
+    @Nullable
     public Object getBean(String name) {
         BeanDefinition def = findBeanDefinition(name);
         if (Objects.requireNonNull(def).getInstance() != null) {
@@ -272,6 +411,31 @@ public class AnnotationConfigApplicationContext {
             }
         }
     }
+
+    /**
+     * findBean 和 getBean 逻辑类似，区别在于前者可以返回null，后者不会返回null，而回直接报错
+     * @param type
+     * @param name
+     * @return
+     */
+    @Nullable
+    protected <T> T findBean(Class<T> type, String name) {
+        BeanDefinition def = findBeanDefinition(type, name);
+        if (def == null) {
+            return null;
+        }
+        return (T) def.getRequiredInstance();
+    }
+
+    @Nullable
+    protected <T> T findBean(Class<T> type) {
+        BeanDefinition def = findBeanDefinition(type);
+        if (def == null) {
+            return null;
+        }
+        return (T) def.getRequiredInstance();
+    }
+
 
     /**
      * add bean def into beans, multiple beans are not allowed
