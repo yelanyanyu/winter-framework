@@ -96,7 +96,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
     }
 
     /**
-     * 调用 init and destroy 方法
+     * invoke the init and destroy methods
      *
      * @param instance
      * @param method
@@ -113,22 +113,22 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
     }
 
     /**
-     * 注入setter方法和 属性注入的bean
+     * Perform dependency injection for the bean represented by 'def'
      *
-     * @param def
+     * @param def def
      */
     void injectBean(BeanDefinition def) {
-        // The dependent object should be a proxy object
-        Object proxiedBean = getOriginBean(def);
+        // The object should not be a proxy object got by 'def.getInstance()'.
+        Object originBean = getOriginBean(def);
         try {
-            injectProperties(def, def.getBeanClass(), proxiedBean);
+            injectProperties(def, def.getBeanClass(), originBean);
         } catch (InvocationTargetException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
     }
 
     /**
-     * Get the origin bean
+     * Get the original bean
      * @param def
      * @return
      */
@@ -161,7 +161,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
     }
 
     /**
-     * 注入单个属性，这个属性可能被@Value注释，也可能被@Autowired注释
+     * inject a single property, which could be annotated with @Value or @Autowired.
      *
      * @param def              def
      * @param clazz            clazz
@@ -584,7 +584,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
     }
 
     /**
-     * 通过 get(ABC.class)的方法得到唯一的单例bean
+     * Get the unique singleton bean through the 'get(ABC.class)'.
      *
      * @param type ABC.class
      * @return beandef
@@ -616,7 +616,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
     }
 
     /**
-     * 根据Name和Type查找BeanDefinition，如果Name不存在，返回null，如果Name存在，但Type不匹配，抛出异常。
+     * Find the BeanDefinition based on name and type. If the Name does not exist, return null. If exists but type does not match, throw an exception.
      *
      * @param type
      * @param name
