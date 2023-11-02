@@ -7,5 +7,5 @@ import com.yelanyanyu.annotation.Component;
  * @version 1.0
  */
 @Component
-public class class02 {
+public class Class02 {
 }

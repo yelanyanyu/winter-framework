@@ -8,7 +8,7 @@ import lombok.Data;
  * @author yelanyanyu@zjxu.edu.cn
  * @version 1.0
  */
-@Import(class02.class)
+@Import(Class02.class)
 @Configuration
 @Data
 public class Class01 {

@@ -11,10 +11,7 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 
 import java.lang.reflect.*;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -26,7 +23,7 @@ public class AnnotationConfigApplicationContext {
     PropertyResolver propertyResolver;
     Map<String, BeanDefinition> beans;
     Set<String> creatingBeanNames;
-
+    List<BeanPostProcessor> postProcessors;
     /**
      * @param configClass      配置类的class对象，里面有ComponentScan注解
      * @param propertyResolver 静态配置集合
@@ -36,6 +33,7 @@ public class AnnotationConfigApplicationContext {
         Set<String> strings = scanForClassNames(configClass);
         this.beans = createBeanDefinitions(strings);
         this.creatingBeanNames = new ConcurrentHashSet<>();
+        this.postProcessors = new ArrayList<>();
 
         /*
             创建bean实例
@@ -45,6 +43,17 @@ public class AnnotationConfigApplicationContext {
             createBeanAsEarlySingleton(def);
             return def.getName();
         }).toList();
+
+        // 注入BeanPostProcessor
+        List<BeanPostProcessor> processors = this.beans.values().stream().
+                filter(this::isBeanPostProcessorDefinition).
+                sorted().
+                map(def -> (BeanPostProcessor) createBeanAsEarlySingleton(def)).
+                toList();
+
+        this.postProcessors.addAll(processors);
+
+
         // 解决普通的循环依赖并注入
 
         // 找出所有未被注入的bean，即instance==null的类
@@ -62,6 +71,10 @@ public class AnnotationConfigApplicationContext {
         this.beans.values().forEach(this::initBean);
     }
 
+    boolean isBeanPostProcessorDefinition(BeanDefinition def) {
+        return BeanPostProcessor.class.isAssignableFrom(def.getBeanClass());
+    }
+
     /**
      * 调用@PostConstruct 注释的init方法
      *
@@ -70,6 +83,12 @@ public class AnnotationConfigApplicationContext {
     void initBean(BeanDefinition def) {
         try {
             callMethod(def.getInstance(), def.getInitMethod(), def.getInitMethodName());
+            this.postProcessors.forEach(beanPostProcessor -> {
+                Object postInstance = beanPostProcessor.postProcessAfterInitialization(def.getInstance(), def.getName());
+                if (postInstance != def.getInstance()) {
+                    def.setInstance(postInstance);
+                }
+            });
         } catch (InvocationTargetException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
@@ -98,11 +117,26 @@ public class AnnotationConfigApplicationContext {
      * @param def
      */
     void injectBean(BeanDefinition def) {
+        Object proxiedBean = getProxiedBean(def);
         try {
             injectProperties(def, def.getBeanClass(), def.getInstance());
         } catch (InvocationTargetException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    Object getProxiedBean(BeanDefinition def) {
+        Object instance = def.getInstance();
+        ArrayList<BeanPostProcessor> reversedBeanPostProcessors = new ArrayList<>(this.postProcessors);
+        // 处理多次代理的情况, 需要用倒序遍历的方式解决
+        Collections.reverse(reversedBeanPostProcessors);
+        for (BeanPostProcessor beanPostProcessor : reversedBeanPostProcessors) {
+            Object restoredInstance = beanPostProcessor.postProcessOnSetProperty(instance, def.getName());
+            if (restoredInstance != instance) {
+                instance = restoredInstance;
+            }
+        }
+        return instance;
     }
 
     void injectProperties(BeanDefinition def, Class<?> clazz, Object bean) throws InvocationTargetException, IllegalAccessException {
@@ -281,6 +315,17 @@ public class AnnotationConfigApplicationContext {
             }
         }
         def.setInstance(instance);
+
+
+        for (BeanPostProcessor processor : this.postProcessors) {
+            Object proc = processor.postProcessBeforeInitialization(def.getInstance(), def.getName());
+
+            if (proc != def.getInstance()) {
+                def.setInstance(proc);
+            }
+        }
+
+
         return def.getInstance();
     }
 

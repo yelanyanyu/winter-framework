@@ -23,7 +23,8 @@ public class AnnotationConfigApplicationContextTest {
         properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("a.properties"));
         PropertyResolver propertyResolver = new PropertyResolver(properties);
         AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(Class01.class, propertyResolver);
-
+        Object bean = ioc.getBean("class02");
+        System.out.println(bean);
     }
 
     @Test
