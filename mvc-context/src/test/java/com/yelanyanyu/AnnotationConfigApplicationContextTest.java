@@ -25,6 +25,7 @@ public class AnnotationConfigApplicationContextTest {
         AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(Class01.class, propertyResolver);
         Object bean = ioc.getBean("class02");
         System.out.println(bean);
+        System.out.println(ioc.containsBean("class02"));
         ioc.close();
     }
 

@@ -96,7 +96,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
     }
 
     /**
-     * 调用init方法
+     * 调用 init and destroy 方法
      *
      * @param instance
      * @param method
@@ -118,20 +118,27 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
      * @param def
      */
     void injectBean(BeanDefinition def) {
-        Object proxiedBean = getProxiedBean(def);
+        // The dependent object should be a proxy object
+        Object proxiedBean = getOriginBean(def);
         try {
-            injectProperties(def, def.getBeanClass(), def.getInstance());
+            injectProperties(def, def.getBeanClass(), proxiedBean);
         } catch (InvocationTargetException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
     }
 
-    Object getProxiedBean(BeanDefinition def) {
+    /**
+     * Get the origin bean
+     * @param def
+     * @return
+     */
+    Object getOriginBean(BeanDefinition def) {
         Object instance = def.getInstance();
         ArrayList<BeanPostProcessor> reversedBeanPostProcessors = new ArrayList<>(this.postProcessors);
         // 处理多次代理的情况, 需要用倒序遍历的方式解决
         Collections.reverse(reversedBeanPostProcessors);
         for (BeanPostProcessor beanPostProcessor : reversedBeanPostProcessors) {
+            // 调用方法恢复 bean
             Object restoredInstance = beanPostProcessor.postProcessOnSetProperty(instance, def.getName());
             if (restoredInstance != instance) {
                 instance = restoredInstance;
@@ -331,14 +338,12 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
     }
 
     @Nullable
-    public Object getBean(String name) {
+    public <T> T getBean(String name) {
         BeanDefinition def = findBeanDefinition(name);
         if (def == null) {
-            throw new NoSuchBeanDefinitionException(String.format(
-                    "No bean defined with name '%s'", name
-            ));
+            throw new NoSuchBeanDefinitionException(String.format("No bean defined with name '%s'.", name));
         }
-        return def.getRequiredInstance();
+        return (T) def.getRequiredInstance();
     }
 
     @Nullable
@@ -361,7 +366,8 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
     public void close() {
         this.beans.values().stream().filter(this::hasDestroyMethod).forEach(def -> {
             Method m = def.getDestoyMethod();
-            Object instance = def.getInstance();
+            // watch out, it has to be the origin bean
+            Object instance = getOriginBean(def);
             if (instance == null) {
                 throw new BeanDefinitionException(String.format(
                         "bean instance is null when executing pre-destroy method for bean '%s'", def.getBeanClass().getName()));
@@ -371,8 +377,8 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
                         "pre-destroy method '%s: %s' has multiple parameters", def.getBeanClass().getName(), def.getDestoyMethod()));
             }
             try {
-                m.invoke(instance);
-            } catch (IllegalAccessException | InvocationTargetException e) {
+                callMethod(def.getInstance(), m, def.getDestroyMethodName());
+            } catch (InvocationTargetException | IllegalAccessException e) {
                 throw new RuntimeException(e);
             }
         });
