@@ -2,6 +2,7 @@ package com.bean;
 
 import com.yelanyanyu.annotation.*;
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import lombok.Data;
 
 /**
@@ -26,5 +27,10 @@ public class Class01 {
     @PostConstruct
     public void init() {
         System.out.println("++++++++++++++++++");
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("-------------------");
     }
 }

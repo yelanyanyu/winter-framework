@@ -19,11 +19,12 @@ import java.util.stream.Collectors;
  * @author yelanyanyu@zjxu.edu.cn
  * @version 1.0
  */
-public class AnnotationConfigApplicationContext {
+public class AnnotationConfigApplicationContext implements ConfigurableApplicationContext {
     PropertyResolver propertyResolver;
     Map<String, BeanDefinition> beans;
     Set<String> creatingBeanNames;
     List<BeanPostProcessor> postProcessors;
+
     /**
      * @param configClass      配置类的class对象，里面有ComponentScan注解
      * @param propertyResolver 静态配置集合
@@ -285,7 +286,7 @@ public class AnnotationConfigApplicationContext {
                 String name = autowired.name();
                 boolean required = autowired.value();
                 // 得到依赖的bean的BeanDefinition
-                BeanDefinition dependenceDef = name.isEmpty() ? findBeanDefinition(type) : findBeanDefinition(type, name);
+                BeanDefinition dependenceDef = name.isEmpty() ? findBeanDefinition(type) : findBeanDefinition(name, type);
                 // 看看是否已经注入
                 Object obj = Objects.requireNonNull(dependenceDef).getInstance();
                 if (required && obj == null) {
@@ -332,10 +333,69 @@ public class AnnotationConfigApplicationContext {
     @Nullable
     public Object getBean(String name) {
         BeanDefinition def = findBeanDefinition(name);
-        if (Objects.requireNonNull(def).getInstance() != null) {
-            return def.getInstance();
+        if (def == null) {
+            throw new NoSuchBeanDefinitionException(String.format(
+                    "No bean defined with name '%s'", name
+            ));
         }
-        return null;
+        return def.getRequiredInstance();
+    }
+
+    @Nullable
+    public <T> T getBean(String name, Class<T> type) {
+        T bean = findBean(type, name);
+        if (bean == null) {
+            throw new NoSuchBeanDefinitionException(String.format(
+                    "No bean defined with type '%s' and name '%s'.", type, name
+            ));
+        }
+        return bean;
+    }
+
+    @Override
+    public <T> List<T> getBeans(Class<T> type) {
+        return (List<T>) findBeanDefinitions(type).stream().map(def -> def.getRequiredInstance()).sorted().toList();
+    }
+
+    @Override
+    public void close() {
+        this.beans.values().stream().filter(this::hasDestroyMethod).forEach(def -> {
+            Method m = def.getDestoyMethod();
+            Object instance = def.getInstance();
+            if (instance == null) {
+                throw new BeanDefinitionException(String.format(
+                        "bean instance is null when executing pre-destroy method for bean '%s'", def.getBeanClass().getName()));
+            }
+            if (m.getParameterCount() != 0) {
+                throw new BeanDefinitionException(String.format(
+                        "pre-destroy method '%s: %s' has multiple parameters", def.getBeanClass().getName(), def.getDestoyMethod()));
+            }
+            try {
+                m.invoke(instance);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+    boolean hasDestroyMethod(BeanDefinition def) {
+        return def.getDestoyMethod() != null;
+    }
+
+    @Override
+    public boolean containsBean(String name) {
+        return findBeanDefinition(name) != null;
+    }
+
+    @Nullable
+    public <T> T getBean(Class<T> type) {
+        T bean = findBean(type);
+        if (bean == null) {
+            throw new NoSuchBeanDefinitionException(String.format(
+                    "No bean defined with type '%s'", type
+            ));
+        }
+        return bean;
     }
 
     public Map<String, BeanDefinition> getBeans() {
@@ -477,7 +537,7 @@ public class AnnotationConfigApplicationContext {
      */
     @Nullable
     protected <T> T findBean(Class<T> type, String name) {
-        BeanDefinition def = findBeanDefinition(type, name);
+        BeanDefinition def = findBeanDefinition(name, type);
         if (def == null) {
             return null;
         }
@@ -513,7 +573,7 @@ public class AnnotationConfigApplicationContext {
      * @param type ABC.class
      * @return list
      */
-    List<BeanDefinition> findBeanDefinitions(Class<?> type) {
+    public List<BeanDefinition> findBeanDefinitions(Class<?> type) {
         return this.beans.values().stream().filter(def -> type.isAssignableFrom(def.getBeanClass())).sorted().collect(Collectors.toList());
     }
 
@@ -557,7 +617,7 @@ public class AnnotationConfigApplicationContext {
      * @return
      */
     @Nullable
-    public BeanDefinition findBeanDefinition(Class<?> type, String name) {
+    public BeanDefinition findBeanDefinition(String name, Class<?> type) {
         BeanDefinition def_name = findBeanDefinition(name);
         if (def_name == null) {
             return null;
