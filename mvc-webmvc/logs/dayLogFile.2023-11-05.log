@@ -1,0 +1,196 @@
+2023-11-05 21:50:52.916  INFO  [main] c.y.w.u.WebUtils - key: other.deep.deep.level, value: level-4
+2023-11-05 21:50:52.918  INFO  [main] c.y.w.u.WebUtils - key: convert.double, value: 1.2345678987654321E8
+2023-11-05 21:50:52.918  INFO  [main] c.y.w.u.WebUtils - key: convert.localdatetime, value: Thu Mar 30 04:45:01 CST 2023
+2023-11-05 21:50:52.919  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneid, value: Asia/Shanghai
+2023-11-05 21:50:52.919  INFO  [main] c.y.w.u.WebUtils - key: other.list, value: [Apple, Orange, Pear]
+2023-11-05 21:50:52.919  INFO  [main] c.y.w.u.WebUtils - key: convert.integer, value: 1234567
+2023-11-05 21:50:52.919  INFO  [main] c.y.w.u.WebUtils - key: other.bool-data, value: true
+2023-11-05 21:50:52.932  INFO  [main] c.y.w.u.WebUtils - key: other.hex-data, value: 1715004
+2023-11-05 21:50:52.932  INFO  [main] c.y.w.u.WebUtils - key: convert.long, value: 123456789000
+2023-11-05 21:50:52.932  INFO  [main] c.y.w.u.WebUtils - key: convert.float, value: 12345.6789
+2023-11-05 21:50:52.932  INFO  [main] c.y.w.u.WebUtils - key: convert.localdate, value: Wed Mar 29 08:00:00 CST 2023
+2023-11-05 21:50:52.932  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneddatetime, value: 2023-03-29T20:45:01+08:00[Asia/Shanghai]
+2023-11-05 21:50:52.932  INFO  [main] c.y.w.u.WebUtils - key: convert.boolean, value: true
+2023-11-05 21:50:52.933  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.password, value: null
+2023-11-05 21:50:52.933  INFO  [main] c.y.w.u.WebUtils - key: convert.byte, value: 123
+2023-11-05 21:50:52.933  INFO  [main] c.y.w.u.WebUtils - key: convert.duration, value: P2DT3H4M
+2023-11-05 21:50:52.933  INFO  [main] c.y.w.u.WebUtils - key: other.address, value: 123 Walkman Dr.
+Suite No.456
+
+2023-11-05 21:50:52.933  INFO  [main] c.y.w.u.WebUtils - key: app.version, value: 1.0.0
+2023-11-05 21:50:52.933  INFO  [main] c.y.w.u.WebUtils - key: convert.short, value: 12345
+2023-11-05 21:50:52.933  INFO  [main] c.y.w.u.WebUtils - key: app.title, value: Summer Framework
+2023-11-05 21:50:52.933  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.auto-commit, value: ${AUTO_COMMIT:false}
+2023-11-05 21:50:52.933  INFO  [main] c.y.w.u.WebUtils - key: other.int-data, value: 12345
+2023-11-05 21:50:52.933  INFO  [main] c.y.w.u.WebUtils - key: convert.localtime, value: 74701
+2023-11-05 21:50:52.933  INFO  [main] c.y.w.u.WebUtils - key: other.hex-string, value: 0x1a2b3c
+2023-11-05 21:50:52.933  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.username, value: sa
+2023-11-05 21:50:52.934  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.url, value: jdbc:hsqldb:file:testdb.tmp
+2023-11-05 21:51:30.018  INFO  [main] c.y.w.u.WebUtils - key: other.deep.deep.level, value: level-4
+2023-11-05 21:51:30.020  INFO  [main] c.y.w.u.WebUtils - key: convert.double, value: 1.2345678987654321E8
+2023-11-05 21:51:30.020  INFO  [main] c.y.w.u.WebUtils - key: convert.localdatetime, value: Thu Mar 30 04:45:01 CST 2023
+2023-11-05 21:51:30.020  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneid, value: Asia/Shanghai
+2023-11-05 21:51:30.020  INFO  [main] c.y.w.u.WebUtils - key: other.list, value: [Apple, Orange, Pear]
+2023-11-05 21:51:30.021  INFO  [main] c.y.w.u.WebUtils - key: convert.integer, value: 1234567
+2023-11-05 21:51:30.021  INFO  [main] c.y.w.u.WebUtils - key: other.bool-data, value: true
+2023-11-05 21:51:30.021  INFO  [main] c.y.w.u.WebUtils - key: other.hex-data, value: 1715004
+2023-11-05 21:51:30.021  INFO  [main] c.y.w.u.WebUtils - key: convert.long, value: 123456789000
+2023-11-05 21:51:30.021  INFO  [main] c.y.w.u.WebUtils - key: convert.float, value: 12345.6789
+2023-11-05 21:51:30.021  INFO  [main] c.y.w.u.WebUtils - key: convert.localdate, value: Wed Mar 29 08:00:00 CST 2023
+2023-11-05 21:51:30.021  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneddatetime, value: 2023-03-29T20:45:01+08:00[Asia/Shanghai]
+2023-11-05 21:51:30.021  INFO  [main] c.y.w.u.WebUtils - key: convert.boolean, value: true
+2023-11-05 21:51:30.021  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.password, value: null
+2023-11-05 21:51:30.021  INFO  [main] c.y.w.u.WebUtils - key: convert.byte, value: 123
+2023-11-05 21:51:30.021  INFO  [main] c.y.w.u.WebUtils - key: convert.duration, value: P2DT3H4M
+2023-11-05 21:51:30.022  INFO  [main] c.y.w.u.WebUtils - key: other.address, value: 123 Walkman Dr.
+Suite No.456
+
+2023-11-05 21:51:30.022  INFO  [main] c.y.w.u.WebUtils - key: app.version, value: 1.0.0
+2023-11-05 21:51:30.022  INFO  [main] c.y.w.u.WebUtils - key: convert.short, value: 12345
+2023-11-05 21:51:30.022  INFO  [main] c.y.w.u.WebUtils - key: app.title, value: Summer Framework
+2023-11-05 21:51:30.022  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.auto-commit, value: ${AUTO_COMMIT:false}
+2023-11-05 21:51:30.022  INFO  [main] c.y.w.u.WebUtils - key: other.int-data, value: 12345
+2023-11-05 21:51:30.022  INFO  [main] c.y.w.u.WebUtils - key: convert.localtime, value: 74701
+2023-11-05 21:51:30.022  INFO  [main] c.y.w.u.WebUtils - key: other.hex-string, value: 0x1a2b3c
+2023-11-05 21:51:30.022  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.username, value: sa
+2023-11-05 21:51:30.022  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.url, value: jdbc:hsqldb:file:testdb.tmp
+2023-11-05 21:51:46.584  INFO  [main] c.y.w.u.WebUtils - key: other.deep.deep.level, value: level-4
+2023-11-05 21:51:46.587  INFO  [main] c.y.w.u.WebUtils - key: convert.double, value: 1.2345678987654321E8
+2023-11-05 21:51:46.587  INFO  [main] c.y.w.u.WebUtils - key: convert.localdatetime, value: Thu Mar 30 04:45:01 CST 2023
+2023-11-05 21:51:46.587  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneid, value: Asia/Shanghai
+2023-11-05 21:51:46.587  INFO  [main] c.y.w.u.WebUtils - key: other.list, value: [Apple, Orange, Pear]
+2023-11-05 21:51:46.587  INFO  [main] c.y.w.u.WebUtils - key: convert.integer, value: 1234567
+2023-11-05 21:51:46.587  INFO  [main] c.y.w.u.WebUtils - key: other.bool-data, value: true
+2023-11-05 21:51:46.587  INFO  [main] c.y.w.u.WebUtils - key: other.hex-data, value: 1715004
+2023-11-05 21:51:46.587  INFO  [main] c.y.w.u.WebUtils - key: convert.long, value: 123456789000
+2023-11-05 21:51:46.587  INFO  [main] c.y.w.u.WebUtils - key: convert.float, value: 12345.6789
+2023-11-05 21:51:46.587  INFO  [main] c.y.w.u.WebUtils - key: convert.localdate, value: Wed Mar 29 08:00:00 CST 2023
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneddatetime, value: 2023-03-29T20:45:01+08:00[Asia/Shanghai]
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: convert.boolean, value: true
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.password, value: null
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: convert.byte, value: 123
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: convert.duration, value: P2DT3H4M
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: other.address, value: 123 Walkman Dr.
+Suite No.456
+
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: app.version, value: 1.0.0
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: convert.short, value: 12345
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: app.title, value: Summer Framework
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.auto-commit, value: ${AUTO_COMMIT:false}
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: other.int-data, value: 12345
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: convert.localtime, value: 74701
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: other.hex-string, value: 0x1a2b3c
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.username, value: sa
+2023-11-05 21:51:46.588  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.url, value: jdbc:hsqldb:file:testdb.tmp
+2023-11-05 21:52:12.185  INFO  [main] c.y.w.u.WebUtils - key: other.deep.deep.level, value: level-4
+2023-11-05 21:52:12.187  INFO  [main] c.y.w.u.WebUtils - key: convert.double, value: 1.2345678987654321E8
+2023-11-05 21:52:12.187  INFO  [main] c.y.w.u.WebUtils - key: convert.localdatetime, value: Thu Mar 30 04:45:01 CST 2023
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneid, value: Asia/Shanghai
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: other.list, value: [Apple, Orange, Pear]
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: convert.integer, value: 1234567
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: other.bool-data, value: true
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: other.hex-data, value: 1715004
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: convert.long, value: 123456789000
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: convert.float, value: 12345.6789
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: convert.localdate, value: Wed Mar 29 08:00:00 CST 2023
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneddatetime, value: 2023-03-29T20:45:01+08:00[Asia/Shanghai]
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: convert.boolean, value: true
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.password, value: null
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: convert.byte, value: 123
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: convert.duration, value: P2DT3H4M
+2023-11-05 21:52:12.188  INFO  [main] c.y.w.u.WebUtils - key: other.address, value: 123 Walkman Dr.
+Suite No.456
+
+2023-11-05 21:52:12.189  INFO  [main] c.y.w.u.WebUtils - key: app.version, value: 1.0.0
+2023-11-05 21:52:12.189  INFO  [main] c.y.w.u.WebUtils - key: convert.short, value: 12345
+2023-11-05 21:52:12.189  INFO  [main] c.y.w.u.WebUtils - key: app.title, value: Summer Framework
+2023-11-05 21:52:12.189  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.auto-commit, value: ${AUTO_COMMIT:false}
+2023-11-05 21:52:12.189  INFO  [main] c.y.w.u.WebUtils - key: other.int-data, value: 12345
+2023-11-05 21:52:12.189  INFO  [main] c.y.w.u.WebUtils - key: convert.localtime, value: 74701
+2023-11-05 21:52:12.189  INFO  [main] c.y.w.u.WebUtils - key: other.hex-string, value: 0x1a2b3c
+2023-11-05 21:52:12.189  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.username, value: sa
+2023-11-05 21:52:12.189  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.url, value: jdbc:hsqldb:file:testdb.tmp
+2023-11-05 21:52:39.589  INFO  [main] c.y.w.u.WebUtils - key: other.deep.deep.level, value: level-4
+2023-11-05 21:52:39.592  INFO  [main] c.y.w.u.WebUtils - key: convert.double, value: 1.2345678987654321E8
+2023-11-05 21:52:39.592  INFO  [main] c.y.w.u.WebUtils - key: convert.localdatetime, value: Thu Mar 30 04:45:01 CST 2023
+2023-11-05 21:52:39.592  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneid, value: Asia/Shanghai
+2023-11-05 21:52:39.592  INFO  [main] c.y.w.u.WebUtils - key: other.list, value: [Apple, Orange, Pear]
+2023-11-05 21:52:39.593  INFO  [main] c.y.w.u.WebUtils - key: convert.integer, value: 1234567
+2023-11-05 21:52:39.593  INFO  [main] c.y.w.u.WebUtils - key: other.bool-data, value: true
+2023-11-05 21:52:39.593  INFO  [main] c.y.w.u.WebUtils - key: other.hex-data, value: 1715004
+2023-11-05 21:52:39.593  INFO  [main] c.y.w.u.WebUtils - key: convert.long, value: 123456789000
+2023-11-05 21:52:39.593  INFO  [main] c.y.w.u.WebUtils - key: convert.float, value: 12345.6789
+2023-11-05 21:52:39.593  INFO  [main] c.y.w.u.WebUtils - key: convert.localdate, value: Wed Mar 29 08:00:00 CST 2023
+2023-11-05 21:52:39.593  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneddatetime, value: 2023-03-29T20:45:01+08:00[Asia/Shanghai]
+2023-11-05 21:52:39.593  INFO  [main] c.y.w.u.WebUtils - key: convert.boolean, value: true
+2023-11-05 21:53:22.799  INFO  [main] c.y.w.u.WebUtils - key: other.deep.deep.level, value: level-4
+2023-11-05 21:53:22.801  INFO  [main] c.y.w.u.WebUtils - key: convert.double, value: 1.2345678987654321E8
+2023-11-05 21:53:22.801  INFO  [main] c.y.w.u.WebUtils - key: convert.localdatetime, value: Thu Mar 30 04:45:01 CST 2023
+2023-11-05 21:53:22.802  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneid, value: Asia/Shanghai
+2023-11-05 21:53:22.802  INFO  [main] c.y.w.u.WebUtils - key: other.list, value: [Apple, Orange, Pear]
+2023-11-05 21:53:22.802  INFO  [main] c.y.w.u.WebUtils - key: convert.integer, value: 1234567
+2023-11-05 21:53:22.802  INFO  [main] c.y.w.u.WebUtils - key: other.bool-data, value: true
+2023-11-05 21:53:22.802  INFO  [main] c.y.w.u.WebUtils - key: other.hex-data, value: 1715004
+2023-11-05 21:53:22.802  INFO  [main] c.y.w.u.WebUtils - key: convert.long, value: 123456789000
+2023-11-05 21:53:22.802  INFO  [main] c.y.w.u.WebUtils - key: convert.float, value: 12345.6789
+2023-11-05 21:53:22.802  INFO  [main] c.y.w.u.WebUtils - key: convert.localdate, value: Wed Mar 29 08:00:00 CST 2023
+2023-11-05 21:53:22.802  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneddatetime, value: 2023-03-29T20:45:01+08:00[Asia/Shanghai]
+2023-11-05 21:53:22.802  INFO  [main] c.y.w.u.WebUtils - key: convert.boolean, value: true
+2023-11-05 21:54:32.787  INFO  [main] c.y.w.u.WebUtils - key: other.deep.deep.level, value: level-4
+2023-11-05 21:54:32.790  INFO  [main] c.y.w.u.WebUtils - key: convert.double, value: 1.2345678987654321E8
+2023-11-05 21:54:32.790  INFO  [main] c.y.w.u.WebUtils - key: convert.localdatetime, value: Thu Mar 30 04:45:01 CST 2023
+2023-11-05 21:54:32.790  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneid, value: Asia/Shanghai
+2023-11-05 21:54:32.790  INFO  [main] c.y.w.u.WebUtils - key: other.list, value: [Apple, Orange, Pear]
+2023-11-05 21:54:32.790  INFO  [main] c.y.w.u.WebUtils - key: convert.integer, value: 1234567
+2023-11-05 21:54:32.790  INFO  [main] c.y.w.u.WebUtils - key: other.bool-data, value: true
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: other.hex-data, value: 1715004
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: convert.long, value: 123456789000
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: convert.float, value: 12345.6789
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: convert.localdate, value: Wed Mar 29 08:00:00 CST 2023
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneddatetime, value: 2023-03-29T20:45:01+08:00[Asia/Shanghai]
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: convert.boolean, value: true
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.password, value: null
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: convert.byte, value: 123
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: convert.duration, value: P2DT3H4M
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: other.address, value: 123 Walkman Dr.
+Suite No.456
+
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: app.version, value: 1.0.0
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: convert.short, value: 12345
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: app.title, value: Summer Framework
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.auto-commit, value: ${AUTO_COMMIT:false}
+2023-11-05 21:54:32.791  INFO  [main] c.y.w.u.WebUtils - key: other.int-data, value: 12345
+2023-11-05 21:54:32.792  INFO  [main] c.y.w.u.WebUtils - key: convert.localtime, value: 74701
+2023-11-05 21:54:32.792  INFO  [main] c.y.w.u.WebUtils - key: other.hex-string, value: 0x1a2b3c
+2023-11-05 21:54:32.792  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.username, value: sa
+2023-11-05 21:54:32.792  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.url, value: jdbc:hsqldb:file:testdb.tmp
+2023-11-05 21:55:04.395  INFO  [main] c.y.w.u.WebUtils - key: other.deep.deep.level, value: level-4
+2023-11-05 21:55:04.398  INFO  [main] c.y.w.u.WebUtils - key: convert.double, value: 1.2345678987654321E8
+2023-11-05 21:55:04.398  INFO  [main] c.y.w.u.WebUtils - key: convert.localdatetime, value: Thu Mar 30 04:45:01 CST 2023
+2023-11-05 21:55:04.398  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneid, value: Asia/Shanghai
+2023-11-05 21:55:04.398  INFO  [main] c.y.w.u.WebUtils - key: other.list, value: [Apple, Orange, Pear]
+2023-11-05 21:55:04.398  INFO  [main] c.y.w.u.WebUtils - key: convert.integer, value: 1234567
+2023-11-05 21:55:04.398  INFO  [main] c.y.w.u.WebUtils - key: other.bool-data, value: true
+2023-11-05 21:55:04.398  INFO  [main] c.y.w.u.WebUtils - key: other.hex-data, value: 1715004
+2023-11-05 21:55:04.398  INFO  [main] c.y.w.u.WebUtils - key: convert.long, value: 123456789000
+2023-11-05 21:55:04.398  INFO  [main] c.y.w.u.WebUtils - key: convert.float, value: 12345.6789
+2023-11-05 21:55:04.399  INFO  [main] c.y.w.u.WebUtils - key: convert.localdate, value: Wed Mar 29 08:00:00 CST 2023
+2023-11-05 21:55:04.399  INFO  [main] c.y.w.u.WebUtils - key: convert.zoneddatetime, value: 2023-03-29T20:45:01+08:00[Asia/Shanghai]
+2023-11-05 21:55:04.399  INFO  [main] c.y.w.u.WebUtils - key: convert.boolean, value: true
+2023-11-05 21:55:04.399  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.password, value: null
+2023-11-05 21:55:04.399  INFO  [main] c.y.w.u.WebUtils - key: convert.byte, value: 123
+2023-11-05 21:55:04.399  INFO  [main] c.y.w.u.WebUtils - key: convert.duration, value: P2DT3H4M
+2023-11-05 21:55:04.399  INFO  [main] c.y.w.u.WebUtils - key: other.address, value: 123 Walkman Dr.
+Suite No.456
+
+2023-11-05 21:55:04.399  INFO  [main] c.y.w.u.WebUtils - key: app.version, value: 1.0.0
+2023-11-05 21:55:04.399  INFO  [main] c.y.w.u.WebUtils - key: convert.short, value: 12345
+2023-11-05 21:55:04.400  INFO  [main] c.y.w.u.WebUtils - key: app.title, value: Summer Framework
+2023-11-05 21:55:04.400  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.auto-commit, value: ${AUTO_COMMIT:false}
+2023-11-05 21:55:04.400  INFO  [main] c.y.w.u.WebUtils - key: other.int-data, value: 12345
+2023-11-05 21:55:04.400  INFO  [main] c.y.w.u.WebUtils - key: convert.localtime, value: 74701
+2023-11-05 21:55:04.400  INFO  [main] c.y.w.u.WebUtils - key: other.hex-string, value: 0x1a2b3c
+2023-11-05 21:55:04.400  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.username, value: sa
+2023-11-05 21:55:04.400  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.url, value: jdbc:hsqldb:file:testdb.tmp
+2023-11-05 21:55:59.046  INFO  [main] c.y.w.u.WebUtils - load config: application.yml
+2023-11-05 21:56:09.872  INFO  [main] c.y.w.u.WebUtils - load config: application.yml

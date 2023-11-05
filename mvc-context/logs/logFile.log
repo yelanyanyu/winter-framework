@@ -1,0 +1,160 @@
+2023-11-05 19:41:44.376  INFO  [main] c.y.ClasspathUtilsTest - v: John, class: class java.lang.String
+2023-11-05 19:41:44.378  INFO  [main] c.y.ClasspathUtilsTest - v: Doe, class: class java.lang.String
+2023-11-05 19:41:44.378  INFO  [main] c.y.ClasspathUtilsTest - v: 31, class: class java.lang.Integer
+2023-11-05 19:41:44.378  INFO  [main] c.y.ClasspathUtilsTest - v: [{type=mobile, number=123456789}, {type=landline, number=456786868}], class: class java.util.ArrayList
+2023-11-05 19:41:44.379  INFO  [main] c.y.ClasspathUtilsTest - v: {line=Xyz, DEF Street, city=City Y, state=State Y, zip=345657}, class: class java.util.LinkedHashMap
+2023-11-05 19:43:01.452  INFO  [main] c.y.ClasspathUtilsTest - v: John, class: class java.lang.String
+2023-11-05 19:43:01.466  INFO  [main] c.y.ClasspathUtilsTest - v: Doe, class: class java.lang.String
+2023-11-05 19:43:01.466  INFO  [main] c.y.ClasspathUtilsTest - v: 31.2, class: class java.lang.Double
+2023-11-05 19:43:01.467  INFO  [main] c.y.ClasspathUtilsTest - v: [{type=mobile, number=123456789}, {type=landline, number=456786868}], class: class java.util.ArrayList
+2023-11-05 19:43:01.467  INFO  [main] c.y.ClasspathUtilsTest - v: {line=Xyz, DEF Street, city=City Y, state=State Y, zip=345657}, class: class java.util.LinkedHashMap
+2023-11-05 19:43:27.739  INFO  [main] c.y.ClasspathUtilsTest - v: John, class: class java.lang.String
+2023-11-05 19:43:27.742  INFO  [main] c.y.ClasspathUtilsTest - v: Doe, class: class java.lang.String
+2023-11-05 19:43:27.742  INFO  [main] c.y.ClasspathUtilsTest - v: 31.2, class: class java.lang.Double
+2023-11-05 19:43:27.743  INFO  [main] c.y.ClasspathUtilsTest - v: [{type=mobile, number=123456789}, {type=landline, number=456786868}], class: class java.util.ArrayList
+2023-11-05 19:43:27.743  INFO  [main] c.y.ClasspathUtilsTest - v: {line=Xyz, DEF Street, city=City Y, state=State Y, zip=345657, aaa=[{b=123}, {c=456}]}, class: class java.util.LinkedHashMap
+2023-11-05 19:45:40.834  INFO  [main] c.y.ClasspathUtilsTest - v: false, class: {}
+2023-11-05 19:45:40.837  INFO  [main] c.y.ClasspathUtilsTest - v: false, class: {}
+2023-11-05 19:45:40.838  INFO  [main] c.y.ClasspathUtilsTest - v: false, class: {}
+2023-11-05 19:45:40.838  INFO  [main] c.y.ClasspathUtilsTest - v: false, class: {}
+2023-11-05 19:45:40.838  INFO  [main] c.y.ClasspathUtilsTest - v: true, class: {}
+2023-11-05 19:45:56.019  INFO  [main] c.y.ClasspathUtilsTest - v: false, class: {}
+2023-11-05 19:45:56.021  INFO  [main] c.y.ClasspathUtilsTest - v: false, class: {}
+2023-11-05 19:45:56.021  INFO  [main] c.y.ClasspathUtilsTest - v: false, class: {}
+2023-11-05 19:45:56.021  INFO  [main] c.y.ClasspathUtilsTest - v: false, class: {}
+2023-11-05 19:45:56.022  INFO  [main] c.y.ClasspathUtilsTest - v: true, class: {}
+2023-11-05 19:56:05.667  INFO  [main] c.y.ClasspathUtilsTest - key: firstName, value: John
+2023-11-05 19:56:05.670  INFO  [main] c.y.ClasspathUtilsTest - key: lastName, value: Doe
+2023-11-05 19:56:05.670  INFO  [main] c.y.ClasspathUtilsTest - key: age, value: 31.2
+2023-11-05 19:56:05.671  INFO  [main] c.y.ClasspathUtilsTest - key: contactDetails, value: [{type=mobile, number=123456789}, {type=landline, number=456786868}]
+2023-11-05 19:56:05.671  INFO  [main] c.y.ClasspathUtilsTest - key: homeAddress, value: {line=Xyz, DEF Street, city=City Y, state=State Y, zip=345657, aaa=[{b=123}, {c=456}]}
+2023-11-05 20:20:38.707  INFO  [main] c.y.ClasspathUtilsTest - key: firstName, value: John
+2023-11-05 20:20:38.709  INFO  [main] c.y.ClasspathUtilsTest - key: lastName, value: Doe
+2023-11-05 20:20:38.709  INFO  [main] c.y.ClasspathUtilsTest - key: homeAddress.city, value: City Y
+2023-11-05 20:20:38.709  INFO  [main] c.y.ClasspathUtilsTest - key: homeAddress.line, value: Xyz, DEF Street
+2023-11-05 20:20:38.710  INFO  [main] c.y.ClasspathUtilsTest - key: homeAddress.state, value: State Y
+2023-11-05 20:20:38.710  INFO  [main] c.y.ClasspathUtilsTest - key: homeAddress.zip, value: 345657
+2023-11-05 20:20:38.710  INFO  [main] c.y.ClasspathUtilsTest - key: homeAddress.aaa, value: [{b=123}, {c=456}]
+2023-11-05 20:20:38.710  INFO  [main] c.y.ClasspathUtilsTest - key: contactDetails, value: [{type=mobile, number=123456789}, {type=landline, number=456786868}]
+2023-11-05 20:20:38.710  INFO  [main] c.y.ClasspathUtilsTest - key: age, value: 31.2
+2023-11-05 20:23:53.822  INFO  [main] c.y.ClasspathUtilsTest - key: firstName, value: John
+2023-11-05 20:23:53.825  INFO  [main] c.y.ClasspathUtilsTest - key: lastName, value: Doe
+2023-11-05 20:23:53.825  INFO  [main] c.y.ClasspathUtilsTest - key: homeAddress.city, value: City Y
+2023-11-05 20:23:53.825  INFO  [main] c.y.ClasspathUtilsTest - key: homeAddress.line, value: Xyz, DEF Street
+2023-11-05 20:23:53.825  INFO  [main] c.y.ClasspathUtilsTest - key: homeAddress.state, value: State Y
+2023-11-05 20:23:53.825  INFO  [main] c.y.ClasspathUtilsTest - key: homeAddress.zip, value: 345657
+2023-11-05 20:23:53.825  INFO  [main] c.y.ClasspathUtilsTest - key: homeAddress.aaa, value: [{b=123}, {c=456, d=null}]
+2023-11-05 20:23:53.825  INFO  [main] c.y.ClasspathUtilsTest - key: contactDetails, value: [{type=mobile, number=123456789}, {type=landline, number=456786868}]
+2023-11-05 20:23:53.825  INFO  [main] c.y.ClasspathUtilsTest - key: age, value: 31.2
+2023-11-05 20:26:06.678  INFO  [main] c.y.ClasspathUtilsTest - key: other.deep.deep.level, value: level-4
+2023-11-05 20:26:06.681  INFO  [main] c.y.ClasspathUtilsTest - key: convert.double, value: 1.2345678987654321E8
+2023-11-05 20:26:06.682  INFO  [main] c.y.ClasspathUtilsTest - key: convert.localdatetime, value: Thu Mar 30 04:45:01 CST 2023
+2023-11-05 20:26:06.682  INFO  [main] c.y.ClasspathUtilsTest - key: convert.zoneid, value: Asia/Shanghai
+2023-11-05 20:26:06.682  INFO  [main] c.y.ClasspathUtilsTest - key: other.list, value: [Apple, Orange, Pear]
+2023-11-05 20:26:06.682  INFO  [main] c.y.ClasspathUtilsTest - key: convert.integer, value: 1234567
+2023-11-05 20:26:06.682  INFO  [main] c.y.ClasspathUtilsTest - key: other.bool-data, value: true
+2023-11-05 20:26:06.682  INFO  [main] c.y.ClasspathUtilsTest - key: other.hex-data, value: 1715004
+2023-11-05 20:26:06.682  INFO  [main] c.y.ClasspathUtilsTest - key: convert.long, value: 123456789000
+2023-11-05 20:26:06.682  INFO  [main] c.y.ClasspathUtilsTest - key: convert.float, value: 12345.6789
+2023-11-05 20:26:06.682  INFO  [main] c.y.ClasspathUtilsTest - key: convert.localdate, value: Wed Mar 29 08:00:00 CST 2023
+2023-11-05 20:26:06.682  INFO  [main] c.y.ClasspathUtilsTest - key: convert.zoneddatetime, value: 2023-03-29T20:45:01+08:00[Asia/Shanghai]
+2023-11-05 20:26:06.682  INFO  [main] c.y.ClasspathUtilsTest - key: convert.boolean, value: true
+2023-11-05 20:26:06.682  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.password, value: null
+2023-11-05 20:26:06.682  INFO  [main] c.y.ClasspathUtilsTest - key: convert.byte, value: 123
+2023-11-05 20:26:06.683  INFO  [main] c.y.ClasspathUtilsTest - key: convert.duration, value: P2DT3H4M
+2023-11-05 20:26:06.683  INFO  [main] c.y.ClasspathUtilsTest - key: other.address, value: 123 Walkman Dr.
+Suite No.456
+
+2023-11-05 20:26:06.683  INFO  [main] c.y.ClasspathUtilsTest - key: app.version, value: 1.0.0
+2023-11-05 20:26:06.683  INFO  [main] c.y.ClasspathUtilsTest - key: convert.short, value: 12345
+2023-11-05 20:26:06.683  INFO  [main] c.y.ClasspathUtilsTest - key: app.title, value: Summer Framework
+2023-11-05 20:26:06.683  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.auto-commit, value: ${AUTO_COMMIT:false}
+2023-11-05 20:26:06.683  INFO  [main] c.y.ClasspathUtilsTest - key: other.int-data, value: 12345
+2023-11-05 20:26:06.683  INFO  [main] c.y.ClasspathUtilsTest - key: convert.localtime, value: 74701
+2023-11-05 20:26:06.683  INFO  [main] c.y.ClasspathUtilsTest - key: other.hex-string, value: 0x1a2b3c
+2023-11-05 20:26:06.683  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.username, value: sa
+2023-11-05 20:26:06.683  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.url, value: jdbc:hsqldb:file:testdb.tmp
+2023-11-05 21:21:00.686  INFO  [main] c.y.ClasspathUtilsTest - key: other.deep.deep.level, value: level-4
+2023-11-05 21:21:00.689  INFO  [main] c.y.ClasspathUtilsTest - key: convert.double, value: 1.2345678987654321E8
+2023-11-05 21:21:00.689  INFO  [main] c.y.ClasspathUtilsTest - key: convert.localdatetime, value: Thu Mar 30 04:45:01 CST 2023
+2023-11-05 21:21:00.689  INFO  [main] c.y.ClasspathUtilsTest - key: convert.zoneid, value: Asia/Shanghai
+2023-11-05 21:21:00.689  INFO  [main] c.y.ClasspathUtilsTest - key: other.list, value: [Apple, Orange, Pear]
+2023-11-05 21:21:00.689  INFO  [main] c.y.ClasspathUtilsTest - key: convert.integer, value: 1234567
+2023-11-05 21:21:00.689  INFO  [main] c.y.ClasspathUtilsTest - key: other.bool-data, value: true
+2023-11-05 21:21:00.690  INFO  [main] c.y.ClasspathUtilsTest - key: other.hex-data, value: 1715004
+2023-11-05 21:21:00.690  INFO  [main] c.y.ClasspathUtilsTest - key: convert.long, value: 123456789000
+2023-11-05 21:21:00.690  INFO  [main] c.y.ClasspathUtilsTest - key: convert.float, value: 12345.6789
+2023-11-05 21:21:00.690  INFO  [main] c.y.ClasspathUtilsTest - key: convert.localdate, value: Wed Mar 29 08:00:00 CST 2023
+2023-11-05 21:21:00.690  INFO  [main] c.y.ClasspathUtilsTest - key: convert.zoneddatetime, value: 2023-03-29T20:45:01+08:00[Asia/Shanghai]
+2023-11-05 21:21:00.690  INFO  [main] c.y.ClasspathUtilsTest - key: convert.boolean, value: true
+2023-11-05 21:21:00.690  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.password, value: null
+2023-11-05 21:21:00.690  INFO  [main] c.y.ClasspathUtilsTest - key: convert.byte, value: 123
+2023-11-05 21:21:00.690  INFO  [main] c.y.ClasspathUtilsTest - key: convert.duration, value: P2DT3H4M
+2023-11-05 21:21:00.690  INFO  [main] c.y.ClasspathUtilsTest - key: other.address, value: 123 Walkman Dr.
+Suite No.456
+
+2023-11-05 21:21:00.690  INFO  [main] c.y.ClasspathUtilsTest - key: app.version, value: 1.0.0
+2023-11-05 21:21:00.690  INFO  [main] c.y.ClasspathUtilsTest - key: convert.short, value: 12345
+2023-11-05 21:21:00.691  INFO  [main] c.y.ClasspathUtilsTest - key: app.title, value: Summer Framework
+2023-11-05 21:21:00.691  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.auto-commit, value: ${AUTO_COMMIT:false}
+2023-11-05 21:21:00.691  INFO  [main] c.y.ClasspathUtilsTest - key: other.int-data, value: 12345
+2023-11-05 21:21:00.691  INFO  [main] c.y.ClasspathUtilsTest - key: convert.localtime, value: 74701
+2023-11-05 21:21:00.691  INFO  [main] c.y.ClasspathUtilsTest - key: other.hex-string, value: 0x1a2b3c
+2023-11-05 21:21:00.691  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.username, value: sa
+2023-11-05 21:21:00.691  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.url, value: jdbc:hsqldb:file:testdb.tmp
+2023-11-05 21:37:23.111  INFO  [main] c.y.ClasspathUtilsTest - key: other.deep.deep.level, value: level-4
+2023-11-05 21:37:23.114  INFO  [main] c.y.ClasspathUtilsTest - key: convert.double, value: 1.2345678987654321E8
+2023-11-05 21:37:23.114  INFO  [main] c.y.ClasspathUtilsTest - key: convert.localdatetime, value: Thu Mar 30 04:45:01 CST 2023
+2023-11-05 21:37:23.115  INFO  [main] c.y.ClasspathUtilsTest - key: convert.zoneid, value: Asia/Shanghai
+2023-11-05 21:37:23.115  INFO  [main] c.y.ClasspathUtilsTest - key: other.list, value: [Apple, Orange, Pear]
+2023-11-05 21:37:23.115  INFO  [main] c.y.ClasspathUtilsTest - key: convert.integer, value: 1234567
+2023-11-05 21:37:23.115  INFO  [main] c.y.ClasspathUtilsTest - key: other.bool-data, value: true
+2023-11-05 21:37:23.115  INFO  [main] c.y.ClasspathUtilsTest - key: other.hex-data, value: 1715004
+2023-11-05 21:37:23.115  INFO  [main] c.y.ClasspathUtilsTest - key: convert.long, value: 123456789000
+2023-11-05 21:37:23.115  INFO  [main] c.y.ClasspathUtilsTest - key: convert.float, value: 12345.6789
+2023-11-05 21:37:23.115  INFO  [main] c.y.ClasspathUtilsTest - key: convert.localdate, value: Wed Mar 29 08:00:00 CST 2023
+2023-11-05 21:37:23.115  INFO  [main] c.y.ClasspathUtilsTest - key: convert.zoneddatetime, value: 2023-03-29T20:45:01+08:00[Asia/Shanghai]
+2023-11-05 21:37:23.115  INFO  [main] c.y.ClasspathUtilsTest - key: convert.boolean, value: true
+2023-11-05 21:37:23.115  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.password, value: null
+2023-11-05 21:37:23.116  INFO  [main] c.y.ClasspathUtilsTest - key: convert.byte, value: 123
+2023-11-05 21:37:23.116  INFO  [main] c.y.ClasspathUtilsTest - key: convert.duration, value: P2DT3H4M
+2023-11-05 21:37:23.116  INFO  [main] c.y.ClasspathUtilsTest - key: other.address, value: 123 Walkman Dr.
+Suite No.456
+
+2023-11-05 21:37:23.116  INFO  [main] c.y.ClasspathUtilsTest - key: app.version, value: 1.0.0
+2023-11-05 21:37:23.116  INFO  [main] c.y.ClasspathUtilsTest - key: convert.short, value: 12345
+2023-11-05 21:37:23.116  INFO  [main] c.y.ClasspathUtilsTest - key: app.title, value: Summer Framework
+2023-11-05 21:37:23.116  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.auto-commit, value: ${AUTO_COMMIT:false}
+2023-11-05 21:37:23.116  INFO  [main] c.y.ClasspathUtilsTest - key: other.int-data, value: 12345
+2023-11-05 21:37:23.116  INFO  [main] c.y.ClasspathUtilsTest - key: convert.localtime, value: 74701
+2023-11-05 21:37:23.116  INFO  [main] c.y.ClasspathUtilsTest - key: other.hex-string, value: 0x1a2b3c
+2023-11-05 21:37:23.116  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.username, value: sa
+2023-11-05 21:37:23.117  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.url, value: jdbc:hsqldb:file:testdb.tmp
+2023-11-05 21:37:36.737  INFO  [main] c.y.ClasspathUtilsTest - key: other.deep.deep.level, value: level-4
+2023-11-05 21:37:36.740  INFO  [main] c.y.ClasspathUtilsTest - key: convert.double, value: 1.2345678987654321E8
+2023-11-05 21:37:36.740  INFO  [main] c.y.ClasspathUtilsTest - key: convert.localdatetime, value: Thu Mar 30 04:45:01 CST 2023
+2023-11-05 21:37:36.740  INFO  [main] c.y.ClasspathUtilsTest - key: convert.zoneid, value: Asia/Shanghai
+2023-11-05 21:37:36.740  INFO  [main] c.y.ClasspathUtilsTest - key: other.list, value: [Apple, Orange, Pear]
+2023-11-05 21:37:36.740  INFO  [main] c.y.ClasspathUtilsTest - key: convert.integer, value: 1234567
+2023-11-05 21:37:36.740  INFO  [main] c.y.ClasspathUtilsTest - key: other.bool-data, value: true
+2023-11-05 21:37:36.740  INFO  [main] c.y.ClasspathUtilsTest - key: other.hex-data, value: 1715004
+2023-11-05 21:37:36.740  INFO  [main] c.y.ClasspathUtilsTest - key: convert.long, value: 123456789000
+2023-11-05 21:37:36.740  INFO  [main] c.y.ClasspathUtilsTest - key: convert.float, value: 12345.6789
+2023-11-05 21:37:36.741  INFO  [main] c.y.ClasspathUtilsTest - key: convert.localdate, value: Wed Mar 29 08:00:00 CST 2023
+2023-11-05 21:37:36.741  INFO  [main] c.y.ClasspathUtilsTest - key: convert.zoneddatetime, value: 2023-03-29T20:45:01+08:00[Asia/Shanghai]
+2023-11-05 21:37:36.741  INFO  [main] c.y.ClasspathUtilsTest - key: convert.boolean, value: true
+2023-11-05 21:37:36.741  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.password, value: null
+2023-11-05 21:37:36.741  INFO  [main] c.y.ClasspathUtilsTest - key: convert.byte, value: 123
+2023-11-05 21:37:36.741  INFO  [main] c.y.ClasspathUtilsTest - key: convert.duration, value: P2DT3H4M
+2023-11-05 21:37:36.741  INFO  [main] c.y.ClasspathUtilsTest - key: other.address, value: 123 Walkman Dr.
+Suite No.456
+
+2023-11-05 21:37:36.741  INFO  [main] c.y.ClasspathUtilsTest - key: app.version, value: 1.0.0
+2023-11-05 21:37:36.741  INFO  [main] c.y.ClasspathUtilsTest - key: convert.short, value: 12345
+2023-11-05 21:37:36.741  INFO  [main] c.y.ClasspathUtilsTest - key: app.title, value: Summer Framework
+2023-11-05 21:37:36.742  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.auto-commit, value: ${AUTO_COMMIT:false}
+2023-11-05 21:37:36.742  INFO  [main] c.y.ClasspathUtilsTest - key: other.int-data, value: 12345
+2023-11-05 21:37:36.742  INFO  [main] c.y.ClasspathUtilsTest - key: convert.localtime, value: 74701
+2023-11-05 21:37:36.742  INFO  [main] c.y.ClasspathUtilsTest - key: other.hex-string, value: 0x1a2b3c
+2023-11-05 21:37:36.742  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.username, value: sa
+2023-11-05 21:37:36.742  INFO  [main] c.y.ClasspathUtilsTest - key: summer.datasource.url, value: jdbc:hsqldb:file:testdb.tmp

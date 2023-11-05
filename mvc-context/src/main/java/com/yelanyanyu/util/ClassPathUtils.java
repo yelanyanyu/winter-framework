@@ -3,10 +3,14 @@ package com.yelanyanyu.util;
 import com.yelanyanyu.annotation.Bean;
 import com.yelanyanyu.exception.BeanCreationException;
 import com.yelanyanyu.exception.BeanDefinitionException;
+import com.yelanyanyu.io.InputStreamCallback;
 import jakarta.annotation.Nullable;
 import jakarta.annotation.PostConstruct;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -52,6 +56,7 @@ public class ClassPathUtils {
         return annotation;
     }
 
+
     public static String getBeanName(Class<?> clazz) {
         return StringUtils.uncapitalize(clazz.getSimpleName());
     }
@@ -89,6 +94,7 @@ public class ClassPathUtils {
 
     /**
      * Get non-arg method by method name
+     *
      * @param clazz
      * @param methodName
      * @return
@@ -97,6 +103,20 @@ public class ClassPathUtils {
         try {
             return clazz.getDeclaredMethod(methodName);
         } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static <T> T readInputStream(String path, InputStreamCallback<T> inputStreamCallback) {
+        if (path.startsWith("/")) {
+            path = path.substring(1);
+        }
+        try (InputStream input = getContextClassLoader().getResourceAsStream(path)) {
+            if (input == null) {
+                throw new FileNotFoundException("File not found in classpath: " + path);
+            }
+            return inputStreamCallback.apply(input);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

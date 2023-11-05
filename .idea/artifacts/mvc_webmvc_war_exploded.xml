@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="mvc-webmvc:war exploded">
+    <output-path>$PROJECT_DIR$/mvc-webmvc/target</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="mvc-webmvc" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.9" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.9" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.12.0" />
+          <element id="library" level="project" name="Maven: jakarta.annotation:jakarta.annotation-api:2.1.1" />
+          <element id="library" level="project" name="Maven: cn.hutool:hutool-all:5.8.20" />
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.20" />
+          <element id="library" level="project" name="Maven: org.yaml:snakeyaml:2.0" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="mvc-webmvc/web/Web" />
+    </root>
+  </artifact>
+</component>

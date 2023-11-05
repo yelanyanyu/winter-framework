@@ -6,6 +6,7 @@ import com.yelanyanyu.util.YamlUtils;
 import jakarta.annotation.Nullable;
 
 import java.time.*;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -23,8 +24,7 @@ public class PropertyResolver {
         this.properties.putAll(System.getenv());
         for (Map.Entry<Object, Object> entry : props.entrySet()) {
             String key = (String) entry.getKey();
-            String value = (String) entry.getValue();
-            this.properties.put(key, value);
+            this.properties.put(key, props.getProperty(key));
         }
 
         converters.put(String.class, s -> s);
@@ -43,6 +43,7 @@ public class PropertyResolver {
         converters.put(ZonedDateTime.class, ZonedDateTime::parse);
         converters.put(Duration.class, Duration::parse);
         converters.put(ZoneId.class, ZoneId::of);
+        converters.put(Date.class, Date::parse);
     }
 
     <T> T convert(Class<?> clazz, String value) {
