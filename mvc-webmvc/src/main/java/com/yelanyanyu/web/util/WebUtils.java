@@ -25,7 +25,6 @@ public class WebUtils {
      * @return rr
      */
     public static PropertyResolver createPropertyResolver() {
-        //todo
         final Properties prop = new Properties();
         try {
             Map<String, Object> map = YamlUtils.loadYamlMapAsPlainMap(CONFIG_APP_YAML);
