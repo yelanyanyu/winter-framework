@@ -43,7 +43,6 @@ public class ClassPathUtils {
      */
     public static <A extends Annotation> A findAnnotation(Class<?> annotatedBeanClass, Class<A> annotationClass) {
         A annotation = annotatedBeanClass.getAnnotation(annotationClass);
-        logger.info("anno: {}, annotated: {}", annotation, annotatedBeanClass);
         for (Annotation anno : annotatedBeanClass.getAnnotations()) {
             Class<? extends Annotation> annoType = anno.annotationType();
             if (annoType.getPackageName().equals("java.lang.annotation")) {
