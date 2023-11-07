@@ -7,6 +7,8 @@ import com.yelanyanyu.io.InputStreamCallback;
 import jakarta.annotation.Nullable;
 import jakarta.annotation.PostConstruct;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,6 +23,7 @@ import java.util.List;
  * @version 1.0
  */
 public class ClassPathUtils {
+    final static Logger logger = LoggerFactory.getLogger(ClassPathUtils.class);
     static ClassLoader getContextClassLoader() {
         ClassLoader cl = null;
         cl = Thread.currentThread().getContextClassLoader();
@@ -40,6 +43,7 @@ public class ClassPathUtils {
      */
     public static <A extends Annotation> A findAnnotation(Class<?> annotatedBeanClass, Class<A> annotationClass) {
         A annotation = annotatedBeanClass.getAnnotation(annotationClass);
+        logger.info("anno: {}, annotated: {}", annotation, annotatedBeanClass);
         for (Annotation anno : annotatedBeanClass.getAnnotations()) {
             Class<? extends Annotation> annoType = anno.annotationType();
             if (annoType.getPackageName().equals("java.lang.annotation")) {
@@ -48,7 +52,7 @@ public class ClassPathUtils {
             A found = findAnnotation(annoType, annotationClass);
             if (found != null) {
                 if (annotation != null) {
-                    throw new BeanDefinitionException("Duplicate @" + annotationClass.getSimpleName() + "for class " + annotationClass.getSimpleName());
+                    throw new BeanDefinitionException("Duplicate @" + annotationClass.getSimpleName() + " for class " + annotatedBeanClass.getSimpleName());
                 }
                 annotation = found;
             }

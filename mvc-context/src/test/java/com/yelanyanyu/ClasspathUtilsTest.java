@@ -1,6 +1,7 @@
 package com.yelanyanyu;
 
 import com.bean.Class01;
+import com.bean.Class08;
 import com.yelanyanyu.annotation.ComponentScan;
 import com.yelanyanyu.util.ClassPathUtils;
 import com.yelanyanyu.util.YamlUtils;
@@ -21,7 +22,7 @@ public class ClasspathUtilsTest {
 
     @Test
     public void t1() {
-        ComponentScan annotation = ClassPathUtils.findAnnotation(Class01.class, ComponentScan.class);
+        ComponentScan annotation = ClassPathUtils.findAnnotation(Class08.class, ComponentScan.class);
         System.out.println(annotation);
     }
 
