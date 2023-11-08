@@ -1,8 +1,7 @@
-package com.yelanyanyu.web.annotation;
+package com.yelanyanyu.annotation;
 
 import com.yelanyanyu.annotation.Component;
 
-import javax.management.StringValueExp;
 import java.lang.annotation.*;
 
 /**
@@ -13,6 +12,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Component
-public @interface Controller {
+public @interface RestController {
     String value() default "";
 }

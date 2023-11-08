@@ -1,4 +1,4 @@
-package com.yelanyanyu.web.annotation;
+package com.yelanyanyu.annotation;
 
 import java.lang.annotation.*;
 
@@ -9,6 +9,5 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface PostMapping {
-    String value();
+public @interface ResponseBody {
 }

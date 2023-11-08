@@ -2,10 +2,9 @@ package com.yelanyanyu.web;
 
 import com.yelanyanyu.context.AnnotationConfigApplicationContext;
 import com.yelanyanyu.context.ApplicationContext;
-import com.yelanyanyu.context.ApplicationUtils;
 import com.yelanyanyu.io.PropertyResolver;
 import com.yelanyanyu.web.exception.NestedRuntimeException;
-import org.apache.commons.lang3.ClassUtils;
+import com.yelanyanyu.web.util.WebUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.ServletRegistration;
 
 /**
  * @author yelanyanyu@zjxu.edu.cn
@@ -28,18 +26,22 @@ public class ContextLoaderListener implements ServletContextListener {
         ServletContext servletContext = servletContextEvent.getServletContext();
 
         String configClassName = servletContext.getInitParameter("configuration");
-        // 获取启动配置文件 application.properties
+        // get application.properties
+        PropertyResolver propertyResolver = WebUtils.createPropertyResolver();
+        ApplicationContext applicationContext = createApplicationContext(configClassName, propertyResolver);
+
+        // register dispatcherServlet
+        WebUtils.registerDispatcherServlet(applicationContext, propertyResolver, servletContext);
 
 
-        DispatcherServlet dispatcherServlet = new DispatcherServlet();
-        ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcherServlet", dispatcherServlet);
-        servlet.addMapping("/");
-        servlet.setLoadOnStartup(0);
+        servletContext.setAttribute("applicationContext", applicationContext);
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
-
+        if (servletContextEvent.getServletContext().getAttribute("applicationContext") instanceof ApplicationContext ioc) {
+            ioc.close();
+        }
     }
 
     ApplicationContext createApplicationContext(String configClassName, PropertyResolver propertyResolver) {

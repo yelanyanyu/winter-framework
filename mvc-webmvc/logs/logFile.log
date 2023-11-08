@@ -194,3 +194,15 @@ Suite No.456
 2023-11-05 21:55:04.400  INFO  [main] c.y.w.u.WebUtils - key: summer.datasource.url, value: jdbc:hsqldb:file:testdb.tmp
 2023-11-05 21:55:59.046  INFO  [main] c.y.w.u.WebUtils - load config: application.yml
 2023-11-05 21:56:09.872  INFO  [main] c.y.w.u.WebUtils - load config: application.yml
+2023-11-08 11:19:03.113  INFO  [main] c.y.PathUtilsTest - res: /product/(?<productId>[^/]*)/detail/(?<detailId>[^/]*)
+2023-11-08 11:43:33.548  INFO  [main] c.y.PathUtilsTest - res: /product/(?<productId>[^/]*)/detail/(?<detailId>[^/]*)
+2023-11-08 11:43:33.551  INFO  [main] c.y.PathUtilsTest - pattern: ^/product/(?<productId>[^/]*)/detail/(?<detailId>[^/]*)$
+2023-11-08 11:49:00.157  INFO  [main] c.y.PathUtilsTest - res: /product/(?<productId>[^/]*)/detail/(?<detailId>[^/]*)
+2023-11-08 11:49:00.162  INFO  [main] c.y.PathUtilsTest - pattern: ^/product/(?<productId>[^/]*)/detail/(?<detailId>[^/]*)$
+2023-11-08 11:50:20.382  INFO  [main] c.y.PathUtilsTest - res: /product/(?<productId>[^/]*)/detail/(?<detailId>[^/]*)
+2023-11-08 11:50:20.399  INFO  [main] c.y.PathUtilsTest - pattern: ^/product/(?<productId>[^/]*)/detail/(?<detailId>[^/]*)$
+2023-11-08 11:53:21.667  INFO  [main] c.y.PathUtilsTest - res: /product/(?<productId>[^/]*)/detail/(?<detailId>[^/]*)
+2023-11-08 11:53:21.671  INFO  [main] c.y.PathUtilsTest - pattern: ^/product/(?<productId>[^/]*)/detail/(?<detailId>[^/]*)$
+2023-11-08 11:54:26.299  INFO  [main] c.y.PathUtilsTest - res: /product/(?<productId>[^/]*)/detail/(?<detailId>[^/]*)
+2023-11-08 11:54:26.303  INFO  [main] c.y.PathUtilsTest - pattern: ^/product/(?<productId>[^/]*)/detail/(?<detailId>[^/]*)$
+2023-11-08 11:54:26.303  INFO  [main] c.y.PathUtilsTest - res: 1

@@ -1,12 +1,15 @@
 package com.yelanyanyu.web.util;
 
-import cn.hutool.core.lang.Assert;
+import com.yelanyanyu.context.ApplicationContext;
 import com.yelanyanyu.io.PropertyResolver;
 import com.yelanyanyu.util.ClassPathUtils;
 import com.yelanyanyu.util.YamlUtils;
+import com.yelanyanyu.web.DispatcherServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletRegistration;
 import java.util.Map;
 import java.util.Properties;
 
@@ -42,5 +45,22 @@ public class WebUtils {
             });
         }
         return new PropertyResolver(prop);
+    }
+
+    /**
+     * Register dispatcherServlet into servlet context
+     *
+     * @param ioc              app context
+     * @param propertyResolver res
+     * @param servletContext   servlet context
+     */
+    public static void registerDispatcherServlet(ApplicationContext ioc,
+                                                 PropertyResolver propertyResolver,
+                                                 ServletContext servletContext) {
+        DispatcherServlet dispatcherServlet = new DispatcherServlet(ioc, propertyResolver);
+        logger.info("register servlet {} for URL '/'", dispatcherServlet.getClass().getName());
+        ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcherServlet", dispatcherServlet);
+        servlet.addMapping("/");
+        servlet.setLoadOnStartup(0);
     }
 }

@@ -1,4 +1,4 @@
-package com.yelanyanyu.web.annotation;
+package com.yelanyanyu.annotation;
 
 import java.lang.annotation.*;
 
@@ -6,9 +6,10 @@ import java.lang.annotation.*;
  * @author yelanyanyu@zjxu.edu.cn
  * @version 1.0
  */
-@Target(ElementType.METHOD)
+
+@Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface GetMapping {
+public @interface PathVariable {
     String value();
 }

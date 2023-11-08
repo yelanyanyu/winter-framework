@@ -9,7 +9,6 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.yelanyanyu</groupId>
     <artifactId>mvc-webmvc</artifactId>
     <version>1.0-SNAPSHOT</version>
 
