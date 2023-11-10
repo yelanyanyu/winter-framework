@@ -9,10 +9,9 @@ import com.yelanyanyu.webmvc.WebMvcConfiguration;
  * @author yelanyanyu@zjxu.edu.cn
  * @version 1.0
  */
-@ComponentScan(value = {"com.yelanyanyu.controller",
-        "com.yelanyanyu.config",
-        "com.yelanyanyu.service"})
+@ComponentScan
 @Configuration
 @Import(WebMvcConfiguration.class)
-public class WebAppConfig {
+public class WebConfig {
+
 }

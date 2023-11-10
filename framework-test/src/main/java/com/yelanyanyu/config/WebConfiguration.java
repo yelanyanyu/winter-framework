@@ -12,9 +12,9 @@ import com.yelanyanyu.webmvc.view.InternalResourceViewResolver;
 public class WebConfiguration {
     @Bean
     public InternalResourceViewResolver internalResourceViewResolver() {
-        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
-        internalResourceViewResolver.setPrefix("/views/");
-        internalResourceViewResolver.setSuffix(".jsp");
-        return internalResourceViewResolver;
+        InternalResourceViewResolver irv = new InternalResourceViewResolver();
+        irv.setPrefix("/WEB-INF/views/");
+        irv.setSuffix(".jsp");
+        return irv;
     }
 }

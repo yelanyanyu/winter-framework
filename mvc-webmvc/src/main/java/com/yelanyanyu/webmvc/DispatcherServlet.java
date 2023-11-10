@@ -264,6 +264,7 @@ public class DispatcherServlet extends HttpServlet {
                         }
                     } else if (returnObj instanceof ModelAndView mv) {
                         // invoke the ViewResolver. Send html back.
+                        logger.debug("begin render model and view: {}", mv);
                         render(mv, req, resp);
                     } else if (!dispatcher.isVoid && returnObj != null) {
                         if (!dispatcher.isResponseBody) {

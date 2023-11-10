@@ -11,6 +11,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class Member {
     String name;
-    String gender;
-    Integer age;
+    Integer id;
 }

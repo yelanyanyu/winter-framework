@@ -12,6 +12,9 @@
     <name>winter-framework</name>
     <url>http://maven.apache.org</url>
     <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>4.13.1</junit.version>
         <servlet-api.version>3.1.0</servlet-api.version>
         <dom4j.version>1.6.1</dom4j.version>
@@ -25,6 +28,7 @@
         <jakarta.annotation.version>2.1.1</jakarta.annotation.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <mvc-context.version>1.0-SNAPSHOT</mvc-context.version>
+        <mvc-webmvc.version>1.0-SNAPSHOT</mvc-webmvc.version>
         <slf4j-api.version>1.7.30</slf4j-api.version>
         <logback-classic.version>1.2.9</logback-classic.version>
     </properties>
@@ -110,6 +114,11 @@
                 <groupId>com.yelanyanyu</groupId>
                 <artifactId>mvc-context</artifactId>
                 <version>${mvc-context.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yelanyanyu</groupId>
+                <artifactId>mvc-webmvc</artifactId>
+                <version>${mvc-webmvc.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
