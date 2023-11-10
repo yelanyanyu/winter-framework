@@ -47,15 +47,17 @@ public class DispatcherServlet extends HttpServlet {
     List<Dispatcher> postDispatchers = new ArrayList<>();
     PropertyResolver propertyResolver;
     ServletContext servletContext;
+    String contextPath;
 
     public DispatcherServlet(ApplicationContext ioc, PropertyResolver propertyResolver) {
         this.ioc = ioc;
         this.propertyResolver = propertyResolver;
-        this.resourcePath = propertyResolver.getProperty("${webmvc.resource-path:static/}");
-        this.faviconPath = propertyResolver.getProperty("${webmvc.favicon-path:favicon/}");
         this.viewResolvers = ioc.getBeans(ViewResolver.class);
         this.servletContext = ioc.getBean(ServletContext.class);
-        logger.debug("contextPath: {}", servletContext.getContextPath());
+        this.contextPath = servletContext.getContextPath();
+        logger.debug("contextPath: {}", this.contextPath);
+        this.resourcePath = this.contextPath + propertyResolver.getProperty("${winter.webmvc.resource-path:/static/}");
+        this.faviconPath = this.contextPath + propertyResolver.getProperty("${winter.webmvc.favicon-path:/favicon/}");
     }
 
     /**
@@ -205,7 +207,6 @@ public class DispatcherServlet extends HttpServlet {
     void doService(String url, HttpServletRequest req, HttpServletResponse resp, List<Dispatcher> dispatcherList) throws ServletException, IOException {
         for (Dispatcher dispatcher : dispatcherList) {
             Result result = dispatcher.process(url, req, resp);
-            logger.debug("res: {}", result);
             // if the handler method is executed successfully
             if (result.processed()) {
                 Object returnObj = result.returnObject();

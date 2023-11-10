@@ -17,6 +17,12 @@ ${requestScope.error}<br>
 name: ${requestScope.bean.name}<br>
 gender: ${requestScope.bean.gender}<br>
 age: ${requestScope.bean.age}<br>
+test-service: ${requestScope.testService}<br>
+username: ${requestScope.username}<br>
+url: ${requestScope.url}<br>
+pwd: ${requestScope.pwd}<br>
+driver: ${requestScope.driver}<br>
+
 
 </body>
 </html>

@@ -1,6 +1,8 @@
 package com.yelanyanyu.controller;
 
+import com.yelanyanyu.annotation.Autowired;
 import com.yelanyanyu.bean.Member;
+import com.yelanyanyu.service.TestService;
 import com.yelanyanyu.webmvc.ModelAndView;
 import com.yelanyanyu.webmvc.annotation.*;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +18,8 @@ import javax.servlet.http.HttpSession;
 @Slf4j
 @Controller
 public class TestController {
+    @Autowired
+    private TestService testService;
     @GetMapping("/t1/t2/{id}/{card}")
     public ModelAndView t1(@PathVariable("id") Integer id,
                            @PathVariable("card") String card) {
@@ -24,6 +28,11 @@ public class TestController {
         modelAndView.addModel("msg", "nihao!!!!!!!");
         modelAndView.addModel("error", "error...");
         modelAndView.addModel("bean", new Member("zhangsan", "nv", 500));
+        modelAndView.addModel("testService", testService.getTest1());
+        modelAndView.addModel("username", testService.getUsername());
+        modelAndView.addModel("url", testService.getUrl());
+        modelAndView.addModel("pwd", testService.getPassword());
+        modelAndView.addModel("driver", testService.getDriverClassName());
         return modelAndView;
     }
 
