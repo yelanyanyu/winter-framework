@@ -1,0 +1,16 @@
+{
+  "name": "yelanyanyu",
+  "phone": "114514",
+  "friends": [
+    {
+      "name": "ikun",
+      "phone": "1919180"
+    },
+    {
+      "name": "ikun2",
+      "phone": "1145141919180"
+    }
+  ],
+  "address": "新日暮里",
+  "age": 100
+}

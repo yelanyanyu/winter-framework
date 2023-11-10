@@ -6,9 +6,9 @@
     <display-name>Archetype Created Web Application</display-name>
     <context-param>
         <param-name>configuration</param-name>
-        <param-value>com.yelanyanyu.web.WebAppConfig</param-value>
+        <param-value>com.yelanyanyu.WebAppConfig</param-value>
     </context-param>
     <listener>
-        <listener-class>com.yelanyanyu.web.ContextLoaderListener</listener-class>
+        <listener-class>com.yelanyanyu.webmvc.ContextLoaderListener</listener-class>
     </listener>
 </web-app>

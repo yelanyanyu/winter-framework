@@ -9,6 +9,7 @@ import com.yelanyanyu.util.ClassPathUtils;
 import jakarta.annotation.Nullable;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.*;
 import java.util.*;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
  * @author yelanyanyu@zjxu.edu.cn
  * @version 1.0
  */
+@Slf4j
 public class AnnotationConfigApplicationContext implements ConfigurableApplicationContext {
     PropertyResolver propertyResolver;
     Map<String, BeanDefinition> beans;
@@ -440,6 +442,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
     }
 
     Map<String, BeanDefinition> createBeanDefinitions(Set<String> classNames) {
+        log.debug("try inject bean set: {}", classNames);
         ConcurrentHashMap<String, BeanDefinition> defs = new ConcurrentHashMap<>();
         //扫描所有以类的形式呈现的bean
         for (String className : classNames) {
@@ -592,9 +595,10 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
     @Nullable
     public BeanDefinition findBeanDefinition(Class<?> type) {
         List<BeanDefinition> defs = findBeanDefinitions(type);
-        if (defs == null) {
+        if (defs == null || defs.isEmpty()) {
             return null;
         }
+        log.debug("defs: {}", defs);
         if (defs.size() == 1) {
             return defs.get(0);
         }

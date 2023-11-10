@@ -6,9 +6,11 @@
     <file url="file://$PROJECT_DIR$/mvc-context/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mvc-web/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mvc-web/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mvc-webmvc/scr/main/webapp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mvc-webmvc/src/main" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mvc-webmvc/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mvc-webmvc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mvc-webmvc/src/main/webapp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
