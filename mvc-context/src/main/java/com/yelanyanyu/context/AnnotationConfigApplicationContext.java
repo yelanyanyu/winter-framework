@@ -72,6 +72,12 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
 
         // 调用@PostConstruct 注释的init方法
         this.beans.values().forEach(this::initBean);
+
+        if (log.isDebugEnabled()) {
+            this.beans.values().stream().sorted().forEach(def -> {
+                log.debug("bean initialized: {}", def);
+            });
+        }
     }
 
     boolean isBeanPostProcessorDefinition(BeanDefinition def) {
@@ -267,7 +273,9 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
      * @param def def
      * @return obj
      */
+    @Override
     public Object createBeanAsEarlySingleton(BeanDefinition def) {
+        log.debug("try create Bean '{}' as early singleton: {}", def.getName(), def.getBeanClass().getName());
         // 解决强循环依赖
         if (!this.creatingBeanNames.add(def.getName())) {
             throw new UnsatisfiedDependencyException("Duplicated bean named " + def.getName() + " are creating");
@@ -331,6 +339,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
             Object proc = processor.postProcessBeforeInitialization(def.getInstance(), def.getName());
 
             if (proc != def.getInstance()) {
+                log.debug("bean '{}' was replaced by the processor: {}", def.getName(), processor.getClass().getName());
                 def.setInstance(proc);
             }
         }
@@ -339,6 +348,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
         return def.getInstance();
     }
 
+    @Override
     @Nullable
     public <T> T getBean(String name) {
         BeanDefinition def = findBeanDefinition(name);
@@ -348,6 +358,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
         return (T) def.getRequiredInstance();
     }
 
+    @Override
     @Nullable
     public <T> T getBean(String name, Class<T> type) {
         T bean = findBean(type, name);
@@ -395,6 +406,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
         return findBeanDefinition(name) != null;
     }
 
+    @Override
     @Nullable
     public <T> T getBean(Class<T> type) {
         T bean = findBean(type);
@@ -442,7 +454,6 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
     }
 
     Map<String, BeanDefinition> createBeanDefinitions(Set<String> classNames) {
-        log.debug("try inject bean set: {}", classNames);
         ConcurrentHashMap<String, BeanDefinition> defs = new ConcurrentHashMap<>();
         //扫描所有以类的形式呈现的bean
         for (String className : classNames) {
@@ -453,6 +464,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
                 throw new RuntimeException(e);
             }
             Component component = ClassPathUtils.findAnnotation(clazz, Component.class);
+            log.debug("found component in bean: {}", clazz.getName());
             if (component != null) { //要注入map
                 String beanName = ClassPathUtils.getBeanName(clazz);
                 BeanDefinition def = new BeanDefinition(beanName, clazz,
@@ -463,6 +475,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
                         ClassPathUtils.findAnnotationMethod(PreDestroy.class, clazz));
 
                 addBeanDefinition(defs, def);
+                log.debug("define bean: {}", def);
                 Configuration configuration = ClassPathUtils.findAnnotation(clazz, Configuration.class);
                 //若类中还有@Bean注解，那么就要以工厂模式注入
                 if (configuration != null) {
@@ -533,6 +546,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
                         null, null,
                         method, beanNameFactory);
                 addBeanDefinition(defs, def);
+                log.debug("define bean: {}", def);
             }
         }
     }
@@ -571,8 +585,9 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
      */
     void addBeanDefinition(Map<String, BeanDefinition> defs, BeanDefinition def) {
         //判断bean是否重复
-        if (defs.put(def.getName(), def) != null)
+        if (defs.put(def.getName(), def) != null) {
             throw new NoUniqueBeanDefinitionException(String.format("bean %s should be unique", def.getName()));
+        }
     }
 
 
@@ -582,6 +597,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
      * @param type ABC.class
      * @return list
      */
+    @Override
     public List<BeanDefinition> findBeanDefinitions(Class<?> type) {
         return this.beans.values().stream().filter(def -> type.isAssignableFrom(def.getBeanClass())).sorted().collect(Collectors.toList());
     }
@@ -592,6 +608,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
      * @param type ABC.class
      * @return beandef
      */
+    @Override
     @Nullable
     public BeanDefinition findBeanDefinition(Class<?> type) {
         List<BeanDefinition> defs = findBeanDefinitions(type);
@@ -614,6 +631,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
         }
     }
 
+    @Override
     @Nullable
     public BeanDefinition findBeanDefinition(String name) {
         return this.beans.get(name);
@@ -626,6 +644,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
      * @param name
      * @return
      */
+    @Override
     @Nullable
     public BeanDefinition findBeanDefinition(String name, Class<?> type) {
         BeanDefinition def_name = findBeanDefinition(name);

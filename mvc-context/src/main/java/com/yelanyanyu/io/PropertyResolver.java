@@ -1,9 +1,8 @@
 package com.yelanyanyu.io;
 
-import cn.hutool.core.lang.Assert;
 import com.yelanyanyu.exception.UnmatchableException;
-import com.yelanyanyu.util.YamlUtils;
 import jakarta.annotation.Nullable;
+import lombok.extern.slf4j.Slf4j;
 
 import java.time.*;
 import java.util.Date;
@@ -16,6 +15,7 @@ import java.util.function.Function;
  * @author yelanyanyu@zjxu.edu.cn
  * @version 1.0
  */
+@Slf4j
 public class PropertyResolver {
     Map<Class<?>, Function<String, Object>> converters = new HashMap<>();
     Map<String, String> properties = new HashMap<>();
@@ -24,7 +24,7 @@ public class PropertyResolver {
         this.properties.putAll(System.getenv());
         for (Map.Entry<Object, Object> entry : props.entrySet()) {
             String key = (String) entry.getKey();
-            this.properties.put(key, props.getProperty(key));
+            this.properties.put(key, props.get(key).toString());
         }
 
         converters.put(String.class, s -> s);
@@ -82,11 +82,15 @@ public class PropertyResolver {
     String getProperty0(String key) {
         PropertyExpr propertyExpr = parsePropertyExpr(key);
         if (propertyExpr != null) {
-            if (propertyExpr.defaultValue() == null) {
-                return getPropertyWithNoneDefaultV(propertyExpr.key());
-            } else {
-                return getPropertyWithDefaultV(propertyExpr.defaultValue());
+            String res = getPropertyWithNoneDefaultV(propertyExpr.key());
+            if (res == null) {
+                if (propertyExpr.defaultValue() == null) {
+                    return getPropertyWithNoneDefaultV(propertyExpr.key());
+                } else {
+                    return getPropertyWithDefaultV(propertyExpr.defaultValue());
+                }
             }
+            return res;
         }
         return null;
     }
@@ -99,16 +103,17 @@ public class PropertyResolver {
     /**
      * 根据默认值得到value, 如果有嵌套，就用嵌套的值来代替默认值，如果没有就用默认值
      *
-     * @param defaultValue 默认值
+     * @param key 默认值
      * @return 值
      */
     @Nullable
-    private String getPropertyWithDefaultV(String defaultValue) {
-        PropertyExpr propertyExpr = parsePropertyExpr(defaultValue);
+    private String getPropertyWithDefaultV(String key) {
+        PropertyExpr propertyExpr = parsePropertyExpr(key);
+        log.debug("proExpr: {}, dv: {}", propertyExpr, key);
         if (propertyExpr == null) {
-            return defaultValue;
+            return key;
         }
-        return getPropertyWithDefaultV(propertyExpr.defaultValue());
+        return getProperty0(propertyExpr.defaultValue());
     }
 
     /**
@@ -126,6 +131,7 @@ public class PropertyResolver {
                 defaultValue = key.substring(idxN + 1, key.length() - 1);
                 k = key.substring(2, idxN);
             }
+            log.debug("k: {}, dv: {}", k, defaultValue);
             return new PropertyExpr(k, defaultValue);
         }
         return null;
