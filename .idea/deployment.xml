@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="192.168.200.129">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/framework-test" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Remote Host (47a387f1-ff46-4a84-b34e-934822262834)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/framework-test" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
