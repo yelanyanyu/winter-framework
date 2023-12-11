@@ -1,0 +1,6 @@
+winter:
+  datasource:
+    url:
+    username:
+    driver-class-name:
+    password:
