@@ -47,6 +47,20 @@ public class JdbcTemplateTest {
         jdbcTemplate.queryForList("select * from monster", Monster.class).forEach(System.out::println);
     }
 
+    @Test
+    public void t2() {
+        Number number = jdbcTemplate.queryForNumber("select count(*) from monster");
+        System.out.println(number);
+    }
+
+    @Test
+    public void t3() {
+        Monster monster = jdbcTemplate.queryForObject("select * from monster where id = ?", Monster.class, 1);
+        System.out.println(monster);
+        System.out.println(jdbcTemplate.queryForObject("select name from monster where id = ?", String.class, 1));
+        System.out.println(jdbcTemplate.queryForObject("select age from monster where id = ?", Integer.class, 1));
+    }
+
 
     @After
     public void after() {

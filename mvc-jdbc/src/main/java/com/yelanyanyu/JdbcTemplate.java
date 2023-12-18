@@ -35,7 +35,6 @@ public class JdbcTemplate {
      * @return a result object returned by the action, or {@code null}
      */
     public <T> T execute(ConnectionCallback<T> action) {
-        // TODO: wait for implementation
         try (Connection connection = dataSource.getConnection()) {
             boolean autoCommit = connection.getAutoCommit();
             if (!autoCommit) {
@@ -120,7 +119,7 @@ public class JdbcTemplate {
     }
 
     /**
-     * Execute query ops with SQL that affects only one row, and convert the result to single number. Correct SQL is like "select count(*) from table_name".
+     * Execute query ops with SQL that query for one row one col, and convert the result to single number. Correct SQL is like "select count(*) from table_name".
      *
      * @param sql  .
      * @param args .
@@ -131,6 +130,43 @@ public class JdbcTemplate {
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return (Number) rs.getObject(1);
+                }
+                return null;
+            }
+        });
+    }
+
+    /**
+     * Execute query ops for only one row, and convert the result to the given clazz. This method only support String, Boolean and Number and Java Bean, If you want to convert to other type like Date.class, please use {@link #queryForObject(String, RowMapper, Object...)}.
+     *
+     * @param sql   .
+     * @param clazz .
+     * @param args  .
+     * @param <T>   .
+     * @return .
+     */
+    @SuppressWarnings("unchecked")
+    public <T> T queryForObject(String sql, Class<T> clazz, Object... args) {
+        if (clazz == String.class) {
+            return (T) queryForObject(sql, StringRowMapper.INSTANCE, args);
+        }
+
+        if (clazz == Boolean.class || clazz == boolean.class) {
+            return (T) queryForObject(sql, BooleanRowMapper.INSTANCE, args);
+        }
+
+        if (Number.class.isAssignableFrom(clazz) || clazz.isPrimitive()) {
+            return (T) queryForObject(sql, NumberRowMapper.INSTANCE, args);
+        }
+
+        return queryForObject(sql, new BeanRowMapper<>(clazz), args);
+    }
+
+    public <T> T queryForObject(String sql, RowMapper<T> rowMapper, Object... args) {
+        return execute(preparedStatementCreator(sql, args), ps -> {
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rowMapper.mapRow(rs, rs.getRow());
                 }
                 return null;
             }
@@ -154,6 +190,33 @@ public class JdbcTemplate {
             }
             return ps;
         };
+    }
+
+    static class StringRowMapper implements RowMapper<String> {
+        static StringRowMapper INSTANCE = new StringRowMapper();
+
+        @Override
+        public String mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+            return resultSet.getString(1);
+        }
+    }
+
+    static class BooleanRowMapper implements RowMapper<Boolean> {
+        static BooleanRowMapper INSTANCE = new BooleanRowMapper();
+
+        @Override
+        public Boolean mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+            return resultSet.getBoolean(1);
+        }
+    }
+
+    static class NumberRowMapper implements RowMapper<Number> {
+        static NumberRowMapper INSTANCE = new NumberRowMapper();
+
+        @Override
+        public Number mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+            return (Number) resultSet.getObject(1);
+        }
     }
 
     class BeanRowMapper<T> implements RowMapper<T> {
