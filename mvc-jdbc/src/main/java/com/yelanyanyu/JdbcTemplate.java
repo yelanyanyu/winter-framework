@@ -17,7 +17,7 @@ import java.util.List;
  * This class is used to execute SQL statements or queries, encapsulating JDBC operations.
  *
  * @author yelanyanyu@zjxu.edu.cn
- * @version 1.0
+ * @version 1.0.0
  */
 @Slf4j
 public class JdbcTemplate {
@@ -30,7 +30,7 @@ public class JdbcTemplate {
     /**
      * Execute a JDBC data access operation, implemented as callback action working on a JDBC Connection.
      *
-     * @param action the callback object that specifies the action
+     * @param action the callback object that specifies the action. Define how to use specific connection.
      * @param <T>    the result type of the callback action
      * @return a result object returned by the action, or {@code null}
      */
@@ -53,7 +53,7 @@ public class JdbcTemplate {
     }
 
     /**
-     * Execute a JDBC data access operation, implemented as callback action working on a JDBC PreparedStatement.
+     * Execute a JDBC data access operation, implemented as callback action working on a JDBC PreparedStatement. This method is used to PreparedStatement's creation and use.
      *
      * @param psc    object that can create a PreparedStatement given a Connection
      * @param action callback object that specifies the action. In other words, Define what type of action(update, query and the like) you want to perform on PreparedStatement.
@@ -162,6 +162,15 @@ public class JdbcTemplate {
         return queryForObject(sql, new BeanRowMapper<>(clazz), args);
     }
 
+    /**
+     * Execute query ops for only one row, and convert the result to the given clazz. This method support any type, but you need to provide a RowMapper to convert ResultSet to the given type.
+     *
+     * @param sql       .
+     * @param rowMapper .
+     * @param args      .
+     * @param <T>       .
+     * @return .
+     */
     public <T> T queryForObject(String sql, RowMapper<T> rowMapper, Object... args) {
         return execute(preparedStatementCreator(sql, args), ps -> {
             try (ResultSet rs = ps.executeQuery()) {
@@ -192,6 +201,9 @@ public class JdbcTemplate {
         };
     }
 
+    /**
+     * Convert ResultSet to String.
+     */
     static class StringRowMapper implements RowMapper<String> {
         static StringRowMapper INSTANCE = new StringRowMapper();
 
@@ -201,6 +213,9 @@ public class JdbcTemplate {
         }
     }
 
+    /**
+     * Convert ResultSet to Boolean.
+     */
     static class BooleanRowMapper implements RowMapper<Boolean> {
         static BooleanRowMapper INSTANCE = new BooleanRowMapper();
 
@@ -210,6 +225,9 @@ public class JdbcTemplate {
         }
     }
 
+    /**
+     * Convert ResultSet to Number.
+     */
     static class NumberRowMapper implements RowMapper<Number> {
         static NumberRowMapper INSTANCE = new NumberRowMapper();
 
@@ -219,6 +237,11 @@ public class JdbcTemplate {
         }
     }
 
+    /**
+     * Convert ResultSet to Java Bean.
+     *
+     * @param <T> .
+     */
     static class BeanRowMapper<T> implements RowMapper<T> {
         private final Class<T> clazz;
 
