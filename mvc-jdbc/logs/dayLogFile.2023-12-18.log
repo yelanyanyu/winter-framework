@@ -1693,3 +1693,74 @@ com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'g
 2023-12-18 16:24:08.647  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=jdbcConfiguration, beanClass=class com.yelanyanyu.JdbcConfiguration, instance=com.yelanyanyu.JdbcConfiguration@6bedbc4d, constructor=public com.yelanyanyu.JdbcConfiguration(), factoryName=null, factoryMethod=null, order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
 2023-12-18 16:24:08.647  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=jdbcTemplate, beanClass=class com.yelanyanyu.JdbcTemplate, instance=com.yelanyanyu.JdbcTemplate@932bc4a, constructor=null, factoryName=jdbcConfiguration, factoryMethod=com.yelanyanyu.JdbcTemplate com.yelanyanyu.JdbcConfiguration.jdbcTemplate(javax.sql.DataSource), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
 2023-12-18 16:24:08.648  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - defs: [BeanDefinition(name=jdbcTemplate, beanClass=class com.yelanyanyu.JdbcTemplate, instance=com.yelanyanyu.JdbcTemplate@932bc4a, constructor=null, factoryName=jdbcConfiguration, factoryMethod=com.yelanyanyu.JdbcTemplate com.yelanyanyu.JdbcConfiguration.jdbcTemplate(javax.sql.DataSource), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)]
+2023-12-18 16:40:08.573  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.url, dv: null
+2023-12-18 16:40:08.576  INFO  [main] c.y.JdbcTemplateTest - url: jdbc:mysql://127.0.0.1:3306/jiaju?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8
+2023-12-18 16:40:08.595  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - found component in bean: com.yelanyanyu.bean.Monster
+2023-12-18 16:40:08.596  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - found component in bean: com.yelanyanyu.StrUtilTest
+2023-12-18 16:40:08.596  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - found component in bean: com.yelanyanyu.JdbcConfig
+2023-12-18 16:40:08.598  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - found component in bean: com.yelanyanyu.JdbcConfiguration
+2023-12-18 16:40:08.609  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=jdbcConfiguration, beanClass=class com.yelanyanyu.JdbcConfiguration, instance=null, constructor=public com.yelanyanyu.JdbcConfiguration(), factoryName=null, factoryMethod=null, order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-18 16:40:08.620  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=jdbcTemplate, beanClass=class com.yelanyanyu.JdbcTemplate, instance=null, constructor=null, factoryName=jdbcConfiguration, factoryMethod=com.yelanyanyu.JdbcTemplate com.yelanyanyu.JdbcConfiguration.jdbcTemplate(javax.sql.DataSource), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-18 16:40:08.620  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=dataSource, beanClass=interface javax.sql.DataSource, instance=null, constructor=null, factoryName=jdbcConfiguration, factoryMethod=public javax.sql.DataSource com.yelanyanyu.JdbcConfiguration.dataSource(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int,int), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=close, initMethod=null, destoyMethod=null)
+2023-12-18 16:40:08.621  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - found component in bean: com.yelanyanyu.JdbcTemplateTest
+2023-12-18 16:40:08.622  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'jdbcConfiguration' as early singleton: com.yelanyanyu.JdbcConfiguration
+2023-12-18 16:40:08.624  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'dataSource' as early singleton: javax.sql.DataSource
+2023-12-18 16:40:08.628  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.url, dv: null
+2023-12-18 16:40:08.628  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.username, dv: null
+2023-12-18 16:40:08.629  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.password, dv: null
+2023-12-18 16:40:08.629  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.driver-class-name, dv: 
+2023-12-18 16:40:08.630  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.maximum-pool-size, dv: 20
+2023-12-18 16:40:08.630  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: 20
+2023-12-18 16:40:08.630  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.minimum-pool-size, dv: 1
+2023-12-18 16:40:08.630  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: 1
+2023-12-18 16:40:08.630  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.connection-timeout, dv: 30000
+2023-12-18 16:40:08.630  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: 30000
+2023-12-18 16:40:08.633  DEBUG [main] c.z.h.HikariConfig - Driver class com.mysql.jdbc.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b
+2023-12-18 16:40:08.639  DEBUG [main] c.z.h.HikariConfig - HikariPool-1 - configuration:
+2023-12-18 16:40:08.646  DEBUG [main] c.z.h.HikariConfig - allowPoolSuspension.............false
+2023-12-18 16:40:08.647  DEBUG [main] c.z.h.HikariConfig - autoCommit......................false
+2023-12-18 16:40:08.647  DEBUG [main] c.z.h.HikariConfig - catalog.........................none
+2023-12-18 16:40:08.647  DEBUG [main] c.z.h.HikariConfig - connectionInitSql...............none
+2023-12-18 16:40:08.647  DEBUG [main] c.z.h.HikariConfig - connectionTestQuery.............none
+2023-12-18 16:40:08.647  DEBUG [main] c.z.h.HikariConfig - connectionTimeout...............30000
+2023-12-18 16:40:08.647  DEBUG [main] c.z.h.HikariConfig - dataSource......................none
+2023-12-18 16:40:08.647  DEBUG [main] c.z.h.HikariConfig - dataSourceClassName.............none
+2023-12-18 16:40:08.648  DEBUG [main] c.z.h.HikariConfig - dataSourceJNDI..................none
+2023-12-18 16:40:08.648  DEBUG [main] c.z.h.HikariConfig - dataSourceProperties............{password=<masked>}
+2023-12-18 16:40:08.649  DEBUG [main] c.z.h.HikariConfig - driverClassName................."com.mysql.jdbc.Driver"
+2023-12-18 16:40:08.650  DEBUG [main] c.z.h.HikariConfig - exceptionOverrideClassName......none
+2023-12-18 16:40:08.650  DEBUG [main] c.z.h.HikariConfig - healthCheckProperties...........{}
+2023-12-18 16:40:08.650  DEBUG [main] c.z.h.HikariConfig - healthCheckRegistry.............none
+2023-12-18 16:40:08.650  DEBUG [main] c.z.h.HikariConfig - idleTimeout.....................600000
+2023-12-18 16:40:08.650  DEBUG [main] c.z.h.HikariConfig - initializationFailTimeout.......1
+2023-12-18 16:40:08.650  DEBUG [main] c.z.h.HikariConfig - isolateInternalQueries..........false
+2023-12-18 16:40:08.651  DEBUG [main] c.z.h.HikariConfig - jdbcUrl.........................jdbc:mysql://127.0.0.1:3306/jiaju?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8
+2023-12-18 16:40:08.651  DEBUG [main] c.z.h.HikariConfig - keepaliveTime...................0
+2023-12-18 16:40:08.651  DEBUG [main] c.z.h.HikariConfig - leakDetectionThreshold..........0
+2023-12-18 16:40:08.651  DEBUG [main] c.z.h.HikariConfig - maxLifetime.....................1800000
+2023-12-18 16:40:08.651  DEBUG [main] c.z.h.HikariConfig - maximumPoolSize.................20
+2023-12-18 16:40:08.651  DEBUG [main] c.z.h.HikariConfig - metricRegistry..................none
+2023-12-18 16:40:08.651  DEBUG [main] c.z.h.HikariConfig - metricsTrackerFactory...........none
+2023-12-18 16:40:08.651  DEBUG [main] c.z.h.HikariConfig - minimumIdle.....................1
+2023-12-18 16:40:08.651  DEBUG [main] c.z.h.HikariConfig - password........................<masked>
+2023-12-18 16:40:08.652  DEBUG [main] c.z.h.HikariConfig - poolName........................"HikariPool-1"
+2023-12-18 16:40:08.652  DEBUG [main] c.z.h.HikariConfig - readOnly........................false
+2023-12-18 16:40:08.652  DEBUG [main] c.z.h.HikariConfig - registerMbeans..................false
+2023-12-18 16:40:08.652  DEBUG [main] c.z.h.HikariConfig - scheduledExecutor...............none
+2023-12-18 16:40:08.652  DEBUG [main] c.z.h.HikariConfig - schema..........................none
+2023-12-18 16:40:08.652  DEBUG [main] c.z.h.HikariConfig - threadFactory...................internal
+2023-12-18 16:40:08.653  DEBUG [main] c.z.h.HikariConfig - transactionIsolation............default
+2023-12-18 16:40:08.653  DEBUG [main] c.z.h.HikariConfig - username........................"root"
+2023-12-18 16:40:08.653  DEBUG [main] c.z.h.HikariConfig - validationTimeout...............5000
+2023-12-18 16:40:08.654  INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2023-12-18 16:40:08.882  INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@6631f5ca
+2023-12-18 16:40:08.884  INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2023-12-18 16:40:08.884  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'jdbcTemplate' as early singleton: com.yelanyanyu.JdbcTemplate
+2023-12-18 16:40:08.886  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - defs: [BeanDefinition(name=dataSource, beanClass=interface javax.sql.DataSource, instance=HikariDataSource (HikariPool-1), constructor=null, factoryName=jdbcConfiguration, factoryMethod=public javax.sql.DataSource com.yelanyanyu.JdbcConfiguration.dataSource(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int,int), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=close, initMethod=null, destoyMethod=null)]
+2023-12-18 16:40:08.890  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=dataSource, beanClass=interface javax.sql.DataSource, instance=HikariDataSource (HikariPool-1), constructor=null, factoryName=jdbcConfiguration, factoryMethod=public javax.sql.DataSource com.yelanyanyu.JdbcConfiguration.dataSource(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int,int), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=close, initMethod=null, destoyMethod=null)
+2023-12-18 16:40:08.890  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=jdbcConfiguration, beanClass=class com.yelanyanyu.JdbcConfiguration, instance=com.yelanyanyu.JdbcConfiguration@6bedbc4d, constructor=public com.yelanyanyu.JdbcConfiguration(), factoryName=null, factoryMethod=null, order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-18 16:40:08.890  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=jdbcTemplate, beanClass=class com.yelanyanyu.JdbcTemplate, instance=com.yelanyanyu.JdbcTemplate@932bc4a, constructor=null, factoryName=jdbcConfiguration, factoryMethod=com.yelanyanyu.JdbcTemplate com.yelanyanyu.JdbcConfiguration.jdbcTemplate(javax.sql.DataSource), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-18 16:40:08.890  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - defs: [BeanDefinition(name=jdbcTemplate, beanClass=class com.yelanyanyu.JdbcTemplate, instance=com.yelanyanyu.JdbcTemplate@932bc4a, constructor=null, factoryName=jdbcConfiguration, factoryMethod=com.yelanyanyu.JdbcTemplate com.yelanyanyu.JdbcConfiguration.jdbcTemplate(javax.sql.DataSource), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)]
+2023-12-18 16:40:08.986  DEBUG [HikariPool-1 housekeeper] c.z.h.p.HikariPool - HikariPool-1 - Before cleanup stats (total=1, active=1, idle=0, waiting=0)
+2023-12-18 16:40:08.987  DEBUG [HikariPool-1 housekeeper] c.z.h.p.HikariPool - HikariPool-1 - After cleanup  stats (total=1, active=1, idle=0, waiting=0)
+2023-12-18 16:40:08.987  DEBUG [HikariPool-1 housekeeper] c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).

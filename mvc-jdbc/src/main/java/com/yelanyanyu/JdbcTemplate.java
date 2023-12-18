@@ -219,7 +219,7 @@ public class JdbcTemplate {
         }
     }
 
-    class BeanRowMapper<T> implements RowMapper<T> {
+    static class BeanRowMapper<T> implements RowMapper<T> {
         private final Class<T> clazz;
 
         public BeanRowMapper(Class<T> clazz) {
