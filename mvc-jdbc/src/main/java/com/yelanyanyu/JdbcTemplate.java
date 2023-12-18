@@ -1,12 +1,17 @@
 package com.yelanyanyu;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.yelanyanyu.exception.DataAccessException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class is used to execute SQL statements or queries, encapsulating JDBC operations.
@@ -32,7 +37,15 @@ public class JdbcTemplate {
     public <T> T execute(ConnectionCallback<T> action) {
         // TODO: wait for implementation
         try (Connection connection = dataSource.getConnection()) {
+            boolean autoCommit = connection.getAutoCommit();
+            if (!autoCommit) {
+                connection.setAutoCommit(true);
+            }
+            // Actually execute the action
             T result = action.doInConnection(connection);
+            if (!autoCommit) {
+                connection.setAutoCommit(false);
+            }
             return result;
         } catch (SQLException e) {
             log.error("exception: ", e);
@@ -44,12 +57,11 @@ public class JdbcTemplate {
      * Execute a JDBC data access operation, implemented as callback action working on a JDBC PreparedStatement.
      *
      * @param psc    object that can create a PreparedStatement given a Connection
-     * @param action callback object that specifies the action
+     * @param action callback object that specifies the action. In other words, Define what type of action(update, query and the like) you want to perform on PreparedStatement.
      * @param <T>    the result type of the callback action
      * @return a result object returned by the action, or {@code null}
      */
     public <T> T execute(PreparedStatementCreator psc, PreparedStatementCallback<T> action) {
-        // TODO: wait for implementation
         return execute(connection -> {
             try (PreparedStatement ps = psc.createPreparedStatement(connection)) {
                 T result = action.doInPreparedStatement(ps);
@@ -62,14 +74,67 @@ public class JdbcTemplate {
     }
 
     /**
-     * Execute update operation with SQL statement and arguments.
+     * Execute update operation with SQL statement and arguments. This method can insert, update or delete data and return the number of rows affected.
      *
      * @param sql  SQL statement
      * @param args arguments
      * @return the number of rows affected
      */
     public int update(String sql, Object... args) {
+        // tell executor do update operation
         return execute(preparedStatementCreator(sql, args), PreparedStatement::executeUpdate);
+    }
+
+    /**
+     * Execute query operation with SQL statement and arguments. This method can query data and return the result.
+     *
+     * @param sql       .
+     * @param rowMapper convert from ResultSet to Java Bean
+     * @param args      .
+     * @param <T>       .
+     * @return .
+     */
+    public <T> List<T> queryForList(String sql, RowMapper<T> rowMapper, Object... args) {
+        return execute(preparedStatementCreator(sql, args), ps -> {
+            try (ResultSet rs = ps.executeQuery()) {
+                List<T> result = new ArrayList<>();
+                while (rs.next()) {
+                    result.add(rowMapper.mapRow(rs, rs.getRow()));
+                }
+                return result;
+            }
+        });
+    }
+
+    /**
+     * Execute query ops with SQL, and convert the result to a list of clazz.
+     *
+     * @param sql   .
+     * @param clazz .
+     * @param args  .
+     * @param <T>   .
+     * @return .
+     */
+    public <T> List<T> queryForList(String sql, Class<T> clazz, Object... args) {
+        return queryForList(sql, new BeanRowMapper<>(clazz), args);
+    }
+
+    /**
+     * Execute query ops with SQL that affects only one row, and convert the result to single number. Correct SQL is like "select count(*) from table_name".
+     *
+     * @param sql  .
+     * @param args .
+     * @return .
+     */
+    public Number queryForNumber(String sql, Object... args) {
+        return execute(preparedStatementCreator(sql, args), ps -> {
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return (Number) rs.getObject(1);
+                }
+                return null;
+            }
+        });
     }
 
     /**
@@ -89,6 +154,27 @@ public class JdbcTemplate {
             }
             return ps;
         };
+    }
+
+    class BeanRowMapper<T> implements RowMapper<T> {
+        private final Class<T> clazz;
+
+        public BeanRowMapper(Class<T> clazz) {
+            this.clazz = clazz;
+        }
+
+        @Override
+        public T mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+            T t = BeanUtils.instantiateClass(clazz);
+            int columnCount = resultSet.getMetaData().getColumnCount();
+            for (int i = 1; i <= columnCount; i++) {
+                String columnName = resultSet.getMetaData().getColumnName(i);
+                Object columnValue = resultSet.getObject(columnName);
+                // use cn.hutool.core.bean.BeanUtil to set property
+                BeanUtil.setProperty(t, columnName, columnValue);
+            }
+            return t;
+        }
     }
 
 }

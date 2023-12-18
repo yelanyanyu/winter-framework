@@ -14,7 +14,7 @@ import java.sql.SQLException;
 @FunctionalInterface
 public interface RowMapper<T> {
     /**
-     * Map the result set to any Java Bean in custom way.
+     * Map the result set to any Java Bean in custom way. One row one object.
      *
      * @param resultSet the ResultSet to map
      * @param rowNum    the number of the current row
