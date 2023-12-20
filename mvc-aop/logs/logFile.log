@@ -1128,3 +1128,9 @@
 2023-12-20 22:15:38.299  INFO  [main] c.y.a.a.AfterHandler - AfterHandler: after method: hello
 2023-12-20 22:15:38.303  INFO  [main] c.y.a.a.AfterHandler - proxy: com.yelanyanyu.aop.after.OriginBean@75d2da2d
 2023-12-20 22:15:38.303  INFO  [main] c.y.a.a.AfterHandler - res: null
+2023-12-20 22:25:13.833  INFO  [main] c.y.a.a.AfterHandler - AfterHandler: after method: hello
+2023-12-20 22:25:13.836  INFO  [main] c.y.a.a.AfterHandler - proxy: com.yelanyanyu.aop.after.OriginBean@5a5338df
+2023-12-20 22:25:13.837  INFO  [main] c.y.a.a.AfterHandler - res: Hello, null.
+2023-12-20 22:25:24.727  INFO  [main] c.y.a.a.AfterHandler - AfterHandler: after method: hello
+2023-12-20 22:25:24.731  INFO  [main] c.y.a.a.AfterHandler - proxy: com.yelanyanyu.aop.after.OriginBean@5a5338df
+2023-12-20 22:25:24.731  INFO  [main] c.y.a.a.AfterHandler - res: Hello, null.
