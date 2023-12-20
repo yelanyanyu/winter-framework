@@ -50,6 +50,7 @@ public enum ProxyResolver {
         Object proxy;
         try {
             proxy = proxyClass.getConstructor().newInstance();
+//            System.out.println("======================proxy: " + proxy);
         } catch (RuntimeException e) {
             log.error("RuntimeException: {}", e.getMessage());
             throw e;

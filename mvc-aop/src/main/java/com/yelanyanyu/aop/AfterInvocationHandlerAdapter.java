@@ -11,15 +11,16 @@ public abstract class AfterInvocationHandlerAdapter implements InvocationHandler
     /**
      * User must implement this method, so that make @After work.
      *
-     * @param proxy  .
-     * @param method .
-     * @param args   .
+     * @param proxy       .
+     * @param returnValue .
+     * @param method      .
+     * @param args        .
      */
-    public abstract void after(Object proxy, Method method, Object[] args);
+    public abstract Object after(Object proxy, Object returnValue, Method method, Object[] args);
 
     @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        after(proxy, method, args);
-        return method.invoke(proxy, args);
+    public final Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        Object result = method.invoke(proxy, args);
+        return after(proxy, result, method, args);
     }
 }

@@ -1,4 +1,4 @@
-package com.yelanyanyu.aop;
+package com.yelanyanyu.aop.around;
 
 import com.yelanyanyu.annotation.Component;
 import com.yelanyanyu.aop.bean.Polite;
@@ -14,6 +14,7 @@ import java.lang.reflect.Method;
 public class AroundInvocationHandler implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        System.out.println("invoke.........");
         if (method.getAnnotation(Polite.class) != null) {
             String ret = (String) method.invoke(proxy, args);
             if (ret.endsWith(".")) {

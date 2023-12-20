@@ -18,7 +18,7 @@ public abstract class BeforeInvocationHandlerAdapter implements InvocationHandle
     public abstract void before(Object proxy, Method method, Object[] args);
 
     @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+    public final Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         before(proxy, method, args);
         return method.invoke(proxy, args);
     }

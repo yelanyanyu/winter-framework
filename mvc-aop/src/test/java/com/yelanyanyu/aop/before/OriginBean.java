@@ -1,7 +1,7 @@
-package com.yelanyanyu.aop.bean;
+package com.yelanyanyu.aop.before;
 
 import com.yelanyanyu.annotation.Component;
-import com.yelanyanyu.aop.annotation.After;
+import com.yelanyanyu.aop.annotation.Before;
 import lombok.NoArgsConstructor;
 
 /**
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
  * @version 1.0
  */
 @Component
-@After("")
+@Before("beforeHandler")
 @NoArgsConstructor
 public class OriginBean {
     public String name;

@@ -1,21 +1,20 @@
-package com.yelanyanyu.aop.bean;
+package com.yelanyanyu.aop.after;
 
 import com.yelanyanyu.annotation.Component;
-import com.yelanyanyu.aop.annotation.After;
-import lombok.NoArgsConstructor;
+import com.yelanyanyu.aop.annotation.Around;
 
 /**
  * @author yelanyanyu@zjxu.edu.cn
  * @version 1.0
  */
 @Component
-@After("")
-@NoArgsConstructor
+@Around("afterHandler")
+//@Before("beforeHandler")
 public class OriginBean {
     public String name;
 
-    public String hello() {
-        return "Hello, " + name + ".";
+    public void hello() {
+        System.out.println("Hello, " + name + ".");
     }
 
     public String morning() {

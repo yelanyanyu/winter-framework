@@ -1,4 +1,4 @@
-package com.yelanyanyu.aop.bean;
+package com.yelanyanyu.aop.around;
 
 import com.yelanyanyu.annotation.Component;
 import com.yelanyanyu.aop.annotation.After;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
  * @version 1.0
  */
 @Component
-@After("")
+@After("afterHandler")
 @NoArgsConstructor
 public class OriginBean {
     public String name;
