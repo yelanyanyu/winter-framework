@@ -1,6 +1,6 @@
-package com.yelanyanyu;
+package com.yelanyanyu.jdbc;
 
-import com.yelanyanyu.exception.DataAccessException;
+import com.yelanyanyu.jdbc.exception.DataAccessException;
 import jakarta.annotation.Nullable;
 
 import java.sql.PreparedStatement;

@@ -1,4 +1,4 @@
-package com.yelanyanyu;
+package com.yelanyanyu.jdbc;
 
 import jakarta.annotation.Nullable;
 

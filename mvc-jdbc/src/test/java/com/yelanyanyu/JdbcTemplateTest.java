@@ -4,6 +4,7 @@ import com.yelanyanyu.bean.Monster;
 import com.yelanyanyu.context.AnnotationConfigApplicationContext;
 import com.yelanyanyu.context.ApplicationContext;
 import com.yelanyanyu.io.PropertyResolver;
+import com.yelanyanyu.jdbc.JdbcTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Assert;

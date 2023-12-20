@@ -1,4 +1,4 @@
-package com.yelanyanyu.exception;
+package com.yelanyanyu.jdbc.exception;
 
 /**
  * @author yelanyanyu@zjxu.edu.cn

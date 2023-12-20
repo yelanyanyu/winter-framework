@@ -1,4 +1,4 @@
-package com.yelanyanyu;
+package com.yelanyanyu.jdbc;
 
 import com.yelanyanyu.annotation.Autowired;
 import com.yelanyanyu.annotation.Bean;
