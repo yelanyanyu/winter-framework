@@ -2,10 +2,10 @@ package com.yelanyanyu;
 
 import com.bean.Class01;
 import com.yelanyanyu.context.AnnotationConfigApplicationContext;
-import com.yelanyanyu.context.BeanDefinition;
+import com.yelanyanyu.context.ApplicationUtils;
 import com.yelanyanyu.io.PropertyResolver;
-import com.yelanyanyu.util.ClassPathUtils;
 import com.yelanyanyu.util.YamlUtils;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -26,7 +26,12 @@ public class AnnotationConfigApplicationContextTest {
         Object bean = ioc.getBean("class02");
         System.out.println(bean);
         System.out.println(ioc.containsBean("class02"));
+
+        Assert.assertNotNull(ApplicationUtils.getRequiredApplicationContext());
+
         ioc.close();
+
+        Assert.assertNull(ApplicationUtils.getApplicationContext());
     }
 
     @Test
