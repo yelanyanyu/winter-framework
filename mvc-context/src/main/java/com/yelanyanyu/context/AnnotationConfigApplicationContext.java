@@ -32,6 +32,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
      * @param propertyResolver 静态配置集合
      */
     public AnnotationConfigApplicationContext(Class<?> configClass, PropertyResolver propertyResolver) {
+        ApplicationUtils.setApplicationContext(this);
         this.propertyResolver = propertyResolver;
         Set<String> strings = scanForClassNames(configClass);
         this.beans = createBeanDefinitions(strings);
@@ -137,6 +138,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
 
     /**
      * Get the original bean
+     *
      * @param def
      * @return
      */
@@ -395,6 +397,7 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
                 throw new RuntimeException(e);
             }
         });
+        ApplicationUtils.setApplicationContext(null);
     }
 
     boolean hasDestroyMethod(BeanDefinition def) {
