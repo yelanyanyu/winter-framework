@@ -5,11 +5,11 @@ import com.yelanyanyu.io.PropertyResolver;
 import com.yelanyanyu.util.ClassPathUtils;
 import com.yelanyanyu.util.YamlUtils;
 import com.yelanyanyu.webmvc.DispatcherServlet;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletRegistration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletRegistration;
 import java.util.Map;
 import java.util.Properties;
 

@@ -4,13 +4,13 @@ import com.yelanyanyu.webmvc.annotation.PathVariable;
 import com.yelanyanyu.webmvc.annotation.RequestBody;
 import com.yelanyanyu.webmvc.annotation.RequestParam;
 import com.yelanyanyu.webmvc.exception.ServletException;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;

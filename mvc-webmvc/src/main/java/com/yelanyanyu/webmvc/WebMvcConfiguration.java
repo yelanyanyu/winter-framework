@@ -2,8 +2,8 @@ package com.yelanyanyu.webmvc;
 
 import com.yelanyanyu.annotation.Bean;
 import com.yelanyanyu.annotation.Configuration;
+import jakarta.servlet.ServletContext;
 
-import javax.servlet.ServletContext;
 
 /**
  * @author yelanyanyu@zjxu.edu.cn

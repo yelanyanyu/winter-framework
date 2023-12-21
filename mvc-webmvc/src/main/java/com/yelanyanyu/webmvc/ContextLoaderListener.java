@@ -5,13 +5,13 @@ import com.yelanyanyu.context.ApplicationContext;
 import com.yelanyanyu.io.PropertyResolver;
 import com.yelanyanyu.webmvc.exception.NestedRuntimeException;
 import com.yelanyanyu.webmvc.util.WebUtils;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
 
 /**
  * @author yelanyanyu@zjxu.edu.cn
