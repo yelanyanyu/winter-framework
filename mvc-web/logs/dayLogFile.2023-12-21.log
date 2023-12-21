@@ -1,0 +1,5 @@
+2023-12-21 20:08:10.743  DEBUG [main] c.y.JsonUtilsTest - obj: TestBean(name=yelanyanyu, phone=114514, address=新日暮里, age=100, friends=[Friend(name=ikun, phone=1919180), Friend(name=ikun2, phone=1145141919180)])
+2023-12-21 20:08:10.759  DEBUG [main] c.y.JsonUtilsTest - str: {"name":"yelanyanyu","phone":"114514","address":"新日暮里","age":100,"friends":[{"name":"ikun","phone":"1919180"},{"name":"ikun2","phone":"1145141919180"}]}
+2023-12-21 20:08:26.441  INFO  [main] c.y.PathUtilsTest - res: /product/(?<productId>[^/]*)/detail/(?<detailId>[^/]*)
+2023-12-21 20:08:26.446  INFO  [main] c.y.PathUtilsTest - pattern: ^/product/(?<productId>[^/]*)/detail/(?<detailId>[^/]*)$
+2023-12-21 20:08:26.446  INFO  [main] c.y.PathUtilsTest - res: 1

@@ -1134,3 +1134,8 @@
 2023-12-20 22:25:24.727  INFO  [main] c.y.a.a.AfterHandler - AfterHandler: after method: hello
 2023-12-20 22:25:24.731  INFO  [main] c.y.a.a.AfterHandler - proxy: com.yelanyanyu.aop.after.OriginBean@5a5338df
 2023-12-20 22:25:24.731  INFO  [main] c.y.a.a.AfterHandler - res: Hello, null.
+2023-12-21 20:07:28.618  INFO  [main] c.y.a.b.BeforeHandler - BeforeHandler: before method: hello
+2023-12-21 20:07:36.453  ERROR [main] c.y.a.AnnotationProxyBeanPostProcessor - Can not find bean definition for aop handler: afterHandler when create proxy bean: OriginBean
+2023-12-21 20:07:50.289  INFO  [main] c.y.a.a.AfterHandler - AfterHandler: after method: hello
+2023-12-21 20:07:50.292  INFO  [main] c.y.a.a.AfterHandler - proxy: com.yelanyanyu.aop.after.OriginBean@5026735c
+2023-12-21 20:07:50.293  INFO  [main] c.y.a.a.AfterHandler - res: Hello, null.

@@ -4,7 +4,7 @@ import com.yelanyanyu.annotation.ComponentScan;
 import com.yelanyanyu.annotation.Configuration;
 import com.yelanyanyu.annotation.Import;
 import com.yelanyanyu.annotation.Order;
-import com.yelanyanyu.webmvc.WebMvcConfiguration;
+import com.yelanyanyu.web.WebMvcConfiguration;
 
 /**
  * @author yelanyanyu@zjxu.edu.cn

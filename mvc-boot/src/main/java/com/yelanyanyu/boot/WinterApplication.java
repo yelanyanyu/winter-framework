@@ -1,8 +1,8 @@
 package com.yelanyanyu.boot;
 
 import com.yelanyanyu.io.PropertyResolver;
-import com.yelanyanyu.webmvc.ContextLoaderInitializer;
-import com.yelanyanyu.webmvc.util.WebUtils;
+import com.yelanyanyu.web.ContextLoaderInitializer;
+import com.yelanyanyu.web.util.WebUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.Context;
 import org.apache.catalina.Server;

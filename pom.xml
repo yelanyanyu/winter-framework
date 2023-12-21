@@ -6,7 +6,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>mvc-context</module>
-        <module>mvc-webmvc</module>
+        <module>mvc-web</module>
         <module>mvc-jdbc</module>
         <module>mvc-aop</module>
         <module>mvc-boot</module>
@@ -177,7 +177,7 @@
             </dependency>
             <dependency>
                 <groupId>com.yelanyanyu</groupId>
-                <artifactId>mvc-webmvc</artifactId>
+                <artifactId>mvc-web</artifactId>
                 <version>${mvc-webmvc.version}</version>
             </dependency>
         </dependencies>

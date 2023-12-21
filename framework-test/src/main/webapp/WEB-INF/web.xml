@@ -9,6 +9,6 @@
     <param-value>com.yelanyanyu.WebConfig</param-value>
   </context-param>
   <listener>
-    <listener-class>com.yelanyanyu.webmvc.ContextLoaderListener</listener-class>
+    <listener-class>com.yelanyanyu.web.ContextLoaderListener</listener-class>
   </listener>
 </web-app>

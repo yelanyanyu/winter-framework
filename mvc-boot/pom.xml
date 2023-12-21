@@ -38,7 +38,7 @@
         </dependency>
         <dependency>
             <groupId>com.yelanyanyu</groupId>
-            <artifactId>mvc-webmvc</artifactId>
+            <artifactId>mvc-web</artifactId>
         </dependency>
     </dependencies>
 

@@ -1,7 +1,7 @@
 package com.yelanyanyu.controller;
 
 import com.yelanyanyu.bean.Member;
-import com.yelanyanyu.webmvc.annotation.*;
+import com.yelanyanyu.web.annotation.*;
 import lombok.extern.slf4j.Slf4j;
 
 /**

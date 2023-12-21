@@ -2,7 +2,7 @@ package com.yelanyanyu.config;
 
 import com.yelanyanyu.annotation.Bean;
 import com.yelanyanyu.annotation.Configuration;
-import com.yelanyanyu.webmvc.view.InternalResourceViewResolver;
+import com.yelanyanyu.web.view.InternalResourceViewResolver;
 
 /**
  * @author yelanyanyu@zjxu.edu.cn
