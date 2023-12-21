@@ -9,6 +9,7 @@
         <module>mvc-webmvc</module>
         <module>mvc-jdbc</module>
         <module>mvc-aop</module>
+        <module>mvc-boot</module>
     </modules>
     <version>1.0-SNAPSHOT</version>
     <name>winter-framework</name>
@@ -38,9 +39,22 @@
         <HikariCP.version>5.0.1</HikariCP.version>
         <mysql-connector-java.version>5.1.49</mysql-connector-java.version>
         <byte-buddy.version>1.14.9</byte-buddy.version>
+        <tomcat-embed-core.version>9.0.50</tomcat-embed-core.version>
+        <tomcat-embed-jasper.version>9.0.50</tomcat-embed-jasper.version>
+
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-jasper</artifactId>
+                <version>${tomcat-embed-jasper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-core</artifactId>
+                <version>${tomcat-embed-core.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/net.bytebuddy/byte-buddy -->
             <dependency>
                 <groupId>net.bytebuddy</groupId>
