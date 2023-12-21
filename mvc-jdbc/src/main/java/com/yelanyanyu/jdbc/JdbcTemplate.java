@@ -2,6 +2,7 @@ package com.yelanyanyu.jdbc;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.yelanyanyu.jdbc.exception.DataAccessException;
+import com.yelanyanyu.jdbc.transaction.TransactionUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 
@@ -35,6 +36,24 @@ public class JdbcTemplate {
      * @return a result object returned by the action, or {@code null}
      */
     public <T> T execute(ConnectionCallback<T> action) {
+        // Judge whether it has a transaction.
+        Connection cur = TransactionUtils.getCurrentConnection();
+        if (cur != null) {
+            // Do have a transaction.
+            try {
+                if (cur.getAutoCommit()) {
+                    log.error("Invalid transaction cause auto commit is true.");
+                    throw new DataAccessException("Invalid transaction cause auto commit is true.");
+                }
+                // Actually execute the action in transaction.
+                return action.doInConnection(cur);
+            } catch (SQLException e) {
+                log.error("exception: ", e);
+                throw new DataAccessException("Invalid connection");
+            }
+        }
+
+        // Do not have any transaction.
         try (Connection connection = dataSource.getConnection()) {
             boolean autoCommit = connection.getAutoCommit();
             if (!autoCommit) {

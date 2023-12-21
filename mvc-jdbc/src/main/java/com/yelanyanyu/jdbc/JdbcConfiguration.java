@@ -4,6 +4,9 @@ import com.yelanyanyu.annotation.Autowired;
 import com.yelanyanyu.annotation.Bean;
 import com.yelanyanyu.annotation.Configuration;
 import com.yelanyanyu.annotation.Value;
+import com.yelanyanyu.jdbc.transaction.DataSourceTransactionManager;
+import com.yelanyanyu.jdbc.transaction.PlatformTransactionManager;
+import com.yelanyanyu.jdbc.transaction.TransactionBeanPostProcessor;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -45,5 +48,14 @@ public class JdbcConfiguration {
         return new JdbcTemplate(dataSource);
     }
 
+    @Bean
+    TransactionBeanPostProcessor transactionBeanPostProcessor() {
+        return new TransactionBeanPostProcessor();
+    }
+
+    @Bean
+    PlatformTransactionManager platformTransactionManager(@Autowired DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
+    }
 
 }

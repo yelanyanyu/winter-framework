@@ -13,6 +13,10 @@
     <artifactId>mvc-jdbc</artifactId>
     <dependencies>
         <dependency>
+            <groupId>com.yelanyanyu</groupId>
+            <artifactId>mvc-aop</artifactId>
+        </dependency>
+        <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
         </dependency>

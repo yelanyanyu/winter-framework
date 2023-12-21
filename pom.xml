@@ -31,6 +31,8 @@
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <mvc-context.version>1.0-SNAPSHOT</mvc-context.version>
         <mvc-webmvc.version>1.0-SNAPSHOT</mvc-webmvc.version>
+        <mvc-aop.version>1.0-SNAPSHOT</mvc-aop.version>
+        <mvc-jdbc.version>1.0-SNAPSHOT</mvc-jdbc.version>
         <slf4j-api.version>1.7.30</slf4j-api.version>
         <logback-classic.version>1.2.9</logback-classic.version>
         <HikariCP.version>5.0.1</HikariCP.version>
@@ -44,6 +46,16 @@
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
                 <version>${byte-buddy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yelanyanyu</groupId>
+                <artifactId>mvc-aop</artifactId>
+                <version>${mvc-aop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yelanyanyu</groupId>
+                <artifactId>mvc-jdbc</artifactId>
+                <version>${mvc-jdbc.version}</version>
             </dependency>
             <dependency>
                 <groupId>mysql</groupId>

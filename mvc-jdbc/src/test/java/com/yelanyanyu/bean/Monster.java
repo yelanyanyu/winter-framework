@@ -21,4 +21,9 @@ public class Monster {
     private String gender;
     private String name;
     private double salary;
+
+    public Monster(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
