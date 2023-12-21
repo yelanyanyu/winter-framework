@@ -1,6 +1,7 @@
 package com.yelanyanyu.web.util;
 
 import com.yelanyanyu.context.ApplicationContext;
+import com.yelanyanyu.context.ApplicationUtils;
 import com.yelanyanyu.io.PropertyResolver;
 import com.yelanyanyu.util.ClassPathUtils;
 import com.yelanyanyu.util.YamlUtils;
@@ -54,12 +55,27 @@ public class WebUtils {
      * @param propertyResolver res
      * @param servletContext   servlet context
      */
+    @Deprecated
     public static void registerDispatcherServlet(ApplicationContext ioc,
                                                  PropertyResolver propertyResolver,
                                                  ServletContext servletContext) {
         DispatcherServlet dispatcherServlet = new DispatcherServlet(ioc, propertyResolver);
         logger.info("register servlet {} for URL '/'", dispatcherServlet.getClass().getName());
         ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcherServlet", dispatcherServlet);
+        servlet.addMapping("/");
+        servlet.setLoadOnStartup(0);
+    }
+
+    /**
+     * Register dispatcherServlet into servlet context
+     *
+     * @param ctx              .
+     * @param propertyResolver .
+     */
+    public static void registerDispatcherServlet(ServletContext ctx, PropertyResolver propertyResolver) {
+        DispatcherServlet dispatcherServlet = new DispatcherServlet(ApplicationUtils.getRequiredApplicationContext(), propertyResolver);
+        logger.info("register servlet {} for URL '/'", dispatcherServlet.getClass().getName());
+        ServletRegistration.Dynamic servlet = ctx.addServlet("dispatcherServlet", dispatcherServlet);
         servlet.addMapping("/");
         servlet.setLoadOnStartup(0);
     }

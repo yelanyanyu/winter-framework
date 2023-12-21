@@ -33,8 +33,7 @@ public class ContextLoaderListener implements ServletContextListener {
         ApplicationContext applicationContext = createApplicationContext(configClassName, propertyResolver);
 
         // register dispatcherServlet
-        WebUtils.registerDispatcherServlet(applicationContext, propertyResolver, servletContext);
-
+        WebUtils.registerDispatcherServlet(servletContext, propertyResolver);
 
         servletContext.setAttribute("applicationContext", applicationContext);
     }
