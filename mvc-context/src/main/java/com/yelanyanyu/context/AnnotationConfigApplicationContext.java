@@ -374,7 +374,15 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
 
     @Override
     public <T> List<T> getBeans(Class<T> type) {
-        return (List<T>) findBeanDefinitions(type).stream().map(def -> def.getRequiredInstance()).sorted().toList();
+        List<BeanDefinition> beanDefinitions = findBeanDefinitions(type);
+        if (beanDefinitions.isEmpty()) {
+            return List.of();
+        }
+        List<T> ans = new ArrayList<>(beanDefinitions.size());
+        for (BeanDefinition def : beanDefinitions) {
+            ans.add((T) def.getRequiredInstance());
+        }
+        return ans;
     }
 
     @Override
@@ -542,8 +550,8 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
                 Class<?> returnType = method.getReturnType();
                 BeanDefinition def = new BeanDefinition(ClassPathUtils.getBeanName(method), returnType,
                         getSuitableConstructor(clazz),
-                        getOrder(clazz),
-                        clazz.isAnnotationPresent(Primary.class),
+                        getOrder(method),
+                        method.isAnnotationPresent(Primary.class),
                         bean.initMethod().isEmpty() ? null : bean.initMethod(),
                         bean.destroyMethod().isEmpty() ? null : bean.destroyMethod(),
                         null, null,
