@@ -1,0 +1,142 @@
+2023-12-23 16:16:22.948  INFO  [main] c.y.b.WinterApplication - Starting HelloConfiguration using Java 17 with PID 28536 (started by lenovo in D:\myCode\formal-projects\yelanyanyu-mvc\yelanyanyu-mvc\framework-boot-test)
+2023-12-23 16:16:22.991  INFO  [main] c.y.w.u.WebUtils - load config: application.yml
+2023-12-23 16:16:22.997  DEBUG [main] c.y.i.PropertyResolver - k: server.port, dv: 8080
+2023-12-23 16:16:22.997  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: 8080
+2023-12-23 16:16:22.997  DEBUG [main] c.y.i.PropertyResolver - k: server.context-path, dv: 
+2023-12-23 16:16:22.998  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: 
+2023-12-23 16:16:22.998  INFO  [main] c.y.b.WinterApplication - starting Tomcat at port 8080...
+2023-12-23 16:24:27.843  INFO  [main] c.y.b.WinterApplication - Starting HelloConfiguration using Java 17 with PID 18776 (started by lenovo in D:\myCode\formal-projects\yelanyanyu-mvc\yelanyanyu-mvc\framework-boot-test)
+2023-12-23 16:24:27.885  INFO  [main] c.y.w.u.WebUtils - load config: application.yml
+2023-12-23 16:24:27.891  DEBUG [main] c.y.i.PropertyResolver - k: server.port, dv: 8080
+2023-12-23 16:24:27.891  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: 8080
+2023-12-23 16:24:27.891  DEBUG [main] c.y.i.PropertyResolver - k: server.context-path, dv: 
+2023-12-23 16:24:27.891  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: 
+2023-12-23 16:24:27.892  INFO  [main] c.y.b.WinterApplication - starting Tomcat at port 8080...
+2023-12-23 16:42:16.711  INFO  [main] c.y.b.WinterApplication - Starting HelloConfiguration using Java 17 with PID 11452 (started by lenovo in D:\myCode\formal-projects\yelanyanyu-mvc\yelanyanyu-mvc\framework-boot-test)
+2023-12-23 16:42:16.789  INFO  [main] c.y.w.u.WebUtils - load config: application.yml
+2023-12-23 16:42:16.796  DEBUG [main] c.y.i.PropertyResolver - k: server.port, dv: 8080
+2023-12-23 16:42:16.797  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: 8080
+2023-12-23 16:42:16.797  DEBUG [main] c.y.i.PropertyResolver - k: server.context-path, dv: 
+2023-12-23 16:42:16.797  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: 
+2023-12-23 16:42:16.797  INFO  [main] c.y.b.WinterApplication - starting Tomcat at port 8080...
+2023-12-23 16:42:17.960  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - found component in bean: com.yelanyanyu.app.filter.Filter_01
+2023-12-23 16:42:17.961  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - found component in bean: com.yelanyanyu.app.filter.Filter_02
+2023-12-23 16:42:17.961  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - found component in bean: com.yelanyanyu.jdbc.JdbcConfiguration
+2023-12-23 16:42:17.971  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=jdbcConfiguration, beanClass=class com.yelanyanyu.jdbc.JdbcConfiguration, instance=null, constructor=public com.yelanyanyu.jdbc.JdbcConfiguration(), factoryName=null, factoryMethod=null, order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:17.979  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=dataSource, beanClass=interface javax.sql.DataSource, instance=null, constructor=null, factoryName=jdbcConfiguration, factoryMethod=public javax.sql.DataSource com.yelanyanyu.jdbc.JdbcConfiguration.dataSource(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int,int), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=close, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:17.980  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=jdbcTemplate, beanClass=class com.yelanyanyu.jdbc.JdbcTemplate, instance=null, constructor=null, factoryName=jdbcConfiguration, factoryMethod=com.yelanyanyu.jdbc.JdbcTemplate com.yelanyanyu.jdbc.JdbcConfiguration.jdbcTemplate(javax.sql.DataSource), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:17.980  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=platformTransactionManager, beanClass=interface com.yelanyanyu.jdbc.transaction.PlatformTransactionManager, instance=null, constructor=null, factoryName=jdbcConfiguration, factoryMethod=com.yelanyanyu.jdbc.transaction.PlatformTransactionManager com.yelanyanyu.jdbc.JdbcConfiguration.platformTransactionManager(javax.sql.DataSource), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:17.980  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=transactionBeanPostProcessor, beanClass=class com.yelanyanyu.jdbc.transaction.TransactionBeanPostProcessor, instance=null, constructor=null, factoryName=jdbcConfiguration, factoryMethod=com.yelanyanyu.jdbc.transaction.TransactionBeanPostProcessor com.yelanyanyu.jdbc.JdbcConfiguration.transactionBeanPostProcessor(), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:17.982  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - found component in bean: com.yelanyanyu.app.controller.MonsterController
+2023-12-23 16:42:17.984  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=monsterController, beanClass=class com.yelanyanyu.app.controller.MonsterController, instance=null, constructor=public com.yelanyanyu.app.controller.MonsterController(), factoryName=null, factoryMethod=null, order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:17.985  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - found component in bean: com.yelanyanyu.app.Main
+2023-12-23 16:42:17.985  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - found component in bean: com.yelanyanyu.web.WebMvcConfiguration
+2023-12-23 16:42:17.985  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=webMvcConfiguration, beanClass=class com.yelanyanyu.web.WebMvcConfiguration, instance=null, constructor=public com.yelanyanyu.web.WebMvcConfiguration(), factoryName=null, factoryMethod=null, order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:17.985  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=servletContext, beanClass=interface jakarta.servlet.ServletContext, instance=null, constructor=null, factoryName=webMvcConfiguration, factoryMethod=public jakarta.servlet.ServletContext com.yelanyanyu.web.WebMvcConfiguration.servletContext(), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:17.986  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - found component in bean: com.yelanyanyu.app.HelloConfiguration
+2023-12-23 16:42:17.988  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=helloConfiguration, beanClass=class com.yelanyanyu.app.HelloConfiguration, instance=null, constructor=public com.yelanyanyu.app.HelloConfiguration(), factoryName=null, factoryMethod=null, order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:17.989  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=filterRegistrationBean_02, beanClass=class com.yelanyanyu.boot.web.servlet.FilterRegistrationBean, instance=null, constructor=null, factoryName=helloConfiguration, factoryMethod=public com.yelanyanyu.boot.web.servlet.FilterRegistrationBean com.yelanyanyu.app.HelloConfiguration.filterRegistrationBean_02(), order=1, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:17.989  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - define bean: BeanDefinition(name=filterRegistrationBean_01, beanClass=class com.yelanyanyu.boot.web.servlet.FilterRegistrationBean, instance=null, constructor=null, factoryName=helloConfiguration, factoryMethod=public com.yelanyanyu.boot.web.servlet.FilterRegistrationBean com.yelanyanyu.app.HelloConfiguration.filterRegistrationBean_01(), order=2, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:17.989  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - found component in bean: com.yelanyanyu.app.bean.Monster
+2023-12-23 16:42:17.991  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'webMvcConfiguration' as early singleton: com.yelanyanyu.web.WebMvcConfiguration
+2023-12-23 16:42:17.991  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'helloConfiguration' as early singleton: com.yelanyanyu.app.HelloConfiguration
+2023-12-23 16:42:17.991  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'jdbcConfiguration' as early singleton: com.yelanyanyu.jdbc.JdbcConfiguration
+2023-12-23 16:42:17.992  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'transactionBeanPostProcessor' as early singleton: com.yelanyanyu.jdbc.transaction.TransactionBeanPostProcessor
+2023-12-23 16:42:17.995  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'filterRegistrationBean_02' as early singleton: com.yelanyanyu.boot.web.servlet.FilterRegistrationBean
+2023-12-23 16:42:17.995  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'filterRegistrationBean_01' as early singleton: com.yelanyanyu.boot.web.servlet.FilterRegistrationBean
+2023-12-23 16:42:17.995  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'dataSource' as early singleton: javax.sql.DataSource
+2023-12-23 16:42:17.997  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.url, dv: null
+2023-12-23 16:42:17.998  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.username, dv: null
+2023-12-23 16:42:17.998  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.password, dv: null
+2023-12-23 16:42:17.998  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.driver-class-name, dv: 
+2023-12-23 16:42:17.999  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.maximum-pool-size, dv: 20
+2023-12-23 16:42:17.999  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: 20
+2023-12-23 16:42:17.999  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.minimum-pool-size, dv: 1
+2023-12-23 16:42:17.999  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: 1
+2023-12-23 16:42:17.999  DEBUG [main] c.y.i.PropertyResolver - k: winter.datasource.connection-timeout, dv: 30000
+2023-12-23 16:42:17.999  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: 30000
+2023-12-23 16:42:18.004  DEBUG [main] c.z.h.HikariConfig - Driver class com.mysql.jdbc.Driver found in Thread context class loader ParallelWebappClassLoader
+  context: ROOT
+  delegate: false
+----------> Parent Classloader:
+jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b
+
+2023-12-23 16:42:18.009  DEBUG [main] c.z.h.HikariConfig - HikariPool-1 - configuration:
+2023-12-23 16:42:18.014  DEBUG [main] c.z.h.HikariConfig - allowPoolSuspension.............false
+2023-12-23 16:42:18.014  DEBUG [main] c.z.h.HikariConfig - autoCommit......................false
+2023-12-23 16:42:18.014  DEBUG [main] c.z.h.HikariConfig - catalog.........................none
+2023-12-23 16:42:18.014  DEBUG [main] c.z.h.HikariConfig - connectionInitSql...............none
+2023-12-23 16:42:18.014  DEBUG [main] c.z.h.HikariConfig - connectionTestQuery.............none
+2023-12-23 16:42:18.014  DEBUG [main] c.z.h.HikariConfig - connectionTimeout...............30000
+2023-12-23 16:42:18.015  DEBUG [main] c.z.h.HikariConfig - dataSource......................none
+2023-12-23 16:42:18.015  DEBUG [main] c.z.h.HikariConfig - dataSourceClassName.............none
+2023-12-23 16:42:18.015  DEBUG [main] c.z.h.HikariConfig - dataSourceJNDI..................none
+2023-12-23 16:42:18.015  DEBUG [main] c.z.h.HikariConfig - dataSourceProperties............{password=<masked>}
+2023-12-23 16:42:18.016  DEBUG [main] c.z.h.HikariConfig - driverClassName................."com.mysql.jdbc.Driver"
+2023-12-23 16:42:18.016  DEBUG [main] c.z.h.HikariConfig - exceptionOverrideClassName......none
+2023-12-23 16:42:18.016  DEBUG [main] c.z.h.HikariConfig - healthCheckProperties...........{}
+2023-12-23 16:42:18.016  DEBUG [main] c.z.h.HikariConfig - healthCheckRegistry.............none
+2023-12-23 16:42:18.016  DEBUG [main] c.z.h.HikariConfig - idleTimeout.....................600000
+2023-12-23 16:42:18.016  DEBUG [main] c.z.h.HikariConfig - initializationFailTimeout.......1
+2023-12-23 16:42:18.016  DEBUG [main] c.z.h.HikariConfig - isolateInternalQueries..........false
+2023-12-23 16:42:18.017  DEBUG [main] c.z.h.HikariConfig - jdbcUrl.........................jdbc:mysql://127.0.0.1:3306/jiaju?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8
+2023-12-23 16:42:18.017  DEBUG [main] c.z.h.HikariConfig - keepaliveTime...................0
+2023-12-23 16:42:18.017  DEBUG [main] c.z.h.HikariConfig - leakDetectionThreshold..........0
+2023-12-23 16:42:18.017  DEBUG [main] c.z.h.HikariConfig - maxLifetime.....................1800000
+2023-12-23 16:42:18.017  DEBUG [main] c.z.h.HikariConfig - maximumPoolSize.................20
+2023-12-23 16:42:18.017  DEBUG [main] c.z.h.HikariConfig - metricRegistry..................none
+2023-12-23 16:42:18.017  DEBUG [main] c.z.h.HikariConfig - metricsTrackerFactory...........none
+2023-12-23 16:42:18.017  DEBUG [main] c.z.h.HikariConfig - minimumIdle.....................1
+2023-12-23 16:42:18.017  DEBUG [main] c.z.h.HikariConfig - password........................<masked>
+2023-12-23 16:42:18.018  DEBUG [main] c.z.h.HikariConfig - poolName........................"HikariPool-1"
+2023-12-23 16:42:18.018  DEBUG [main] c.z.h.HikariConfig - readOnly........................false
+2023-12-23 16:42:18.018  DEBUG [main] c.z.h.HikariConfig - registerMbeans..................false
+2023-12-23 16:42:18.018  DEBUG [main] c.z.h.HikariConfig - scheduledExecutor...............none
+2023-12-23 16:42:18.018  DEBUG [main] c.z.h.HikariConfig - schema..........................none
+2023-12-23 16:42:18.018  DEBUG [main] c.z.h.HikariConfig - threadFactory...................internal
+2023-12-23 16:42:18.018  DEBUG [main] c.z.h.HikariConfig - transactionIsolation............default
+2023-12-23 16:42:18.018  DEBUG [main] c.z.h.HikariConfig - username........................"root"
+2023-12-23 16:42:18.018  DEBUG [main] c.z.h.HikariConfig - validationTimeout...............5000
+2023-12-23 16:42:18.019  INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2023-12-23 16:42:18.174  INFO  [main] c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@5c16561a
+2023-12-23 16:42:18.177  INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2023-12-23 16:42:18.177  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'jdbcTemplate' as early singleton: com.yelanyanyu.jdbc.JdbcTemplate
+2023-12-23 16:42:18.179  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - defs: [BeanDefinition(name=dataSource, beanClass=interface javax.sql.DataSource, instance=HikariDataSource (HikariPool-1), constructor=null, factoryName=jdbcConfiguration, factoryMethod=public javax.sql.DataSource com.yelanyanyu.jdbc.JdbcConfiguration.dataSource(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int,int), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=close, initMethod=null, destoyMethod=null)]
+2023-12-23 16:42:18.180  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'monsterController' as early singleton: com.yelanyanyu.app.controller.MonsterController
+2023-12-23 16:42:18.181  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'platformTransactionManager' as early singleton: com.yelanyanyu.jdbc.transaction.PlatformTransactionManager
+2023-12-23 16:42:18.181  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - defs: [BeanDefinition(name=dataSource, beanClass=interface javax.sql.DataSource, instance=HikariDataSource (HikariPool-1), constructor=null, factoryName=jdbcConfiguration, factoryMethod=public javax.sql.DataSource com.yelanyanyu.jdbc.JdbcConfiguration.dataSource(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int,int), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=close, initMethod=null, destoyMethod=null)]
+2023-12-23 16:42:18.183  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - try create Bean 'servletContext' as early singleton: jakarta.servlet.ServletContext
+2023-12-23 16:42:18.186  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - defs: [BeanDefinition(name=jdbcTemplate, beanClass=class com.yelanyanyu.jdbc.JdbcTemplate, instance=com.yelanyanyu.jdbc.JdbcTemplate@6219006a, constructor=null, factoryName=jdbcConfiguration, factoryMethod=com.yelanyanyu.jdbc.JdbcTemplate com.yelanyanyu.jdbc.JdbcConfiguration.jdbcTemplate(javax.sql.DataSource), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)]
+2023-12-23 16:42:18.187  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=filterRegistrationBean_02, beanClass=class com.yelanyanyu.boot.web.servlet.FilterRegistrationBean, instance=com.yelanyanyu.boot.web.servlet.FilterRegistrationBean@226e95e9, constructor=null, factoryName=helloConfiguration, factoryMethod=public com.yelanyanyu.boot.web.servlet.FilterRegistrationBean com.yelanyanyu.app.HelloConfiguration.filterRegistrationBean_02(), order=1, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:18.188  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=filterRegistrationBean_01, beanClass=class com.yelanyanyu.boot.web.servlet.FilterRegistrationBean, instance=com.yelanyanyu.boot.web.servlet.FilterRegistrationBean@27bf574b, constructor=null, factoryName=helloConfiguration, factoryMethod=public com.yelanyanyu.boot.web.servlet.FilterRegistrationBean com.yelanyanyu.app.HelloConfiguration.filterRegistrationBean_01(), order=2, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:18.188  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=dataSource, beanClass=interface javax.sql.DataSource, instance=HikariDataSource (HikariPool-1), constructor=null, factoryName=jdbcConfiguration, factoryMethod=public javax.sql.DataSource com.yelanyanyu.jdbc.JdbcConfiguration.dataSource(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int,int), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=close, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:18.188  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=helloConfiguration, beanClass=class com.yelanyanyu.app.HelloConfiguration, instance=com.yelanyanyu.app.HelloConfiguration@4cbb11e4, constructor=public com.yelanyanyu.app.HelloConfiguration(), factoryName=null, factoryMethod=null, order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:18.188  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=jdbcConfiguration, beanClass=class com.yelanyanyu.jdbc.JdbcConfiguration, instance=com.yelanyanyu.jdbc.JdbcConfiguration@326dbe25, constructor=public com.yelanyanyu.jdbc.JdbcConfiguration(), factoryName=null, factoryMethod=null, order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:18.188  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=jdbcTemplate, beanClass=class com.yelanyanyu.jdbc.JdbcTemplate, instance=com.yelanyanyu.jdbc.JdbcTemplate@6219006a, constructor=null, factoryName=jdbcConfiguration, factoryMethod=com.yelanyanyu.jdbc.JdbcTemplate com.yelanyanyu.jdbc.JdbcConfiguration.jdbcTemplate(javax.sql.DataSource), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:18.188  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=monsterController, beanClass=class com.yelanyanyu.app.controller.MonsterController, instance=com.yelanyanyu.app.controller.MonsterController@647aa45c, constructor=public com.yelanyanyu.app.controller.MonsterController(), factoryName=null, factoryMethod=null, order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:18.189  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=platformTransactionManager, beanClass=interface com.yelanyanyu.jdbc.transaction.PlatformTransactionManager, instance=com.yelanyanyu.jdbc.transaction.DataSourceTransactionManager@3922b297, constructor=null, factoryName=jdbcConfiguration, factoryMethod=com.yelanyanyu.jdbc.transaction.PlatformTransactionManager com.yelanyanyu.jdbc.JdbcConfiguration.platformTransactionManager(javax.sql.DataSource), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:18.189  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=servletContext, beanClass=interface jakarta.servlet.ServletContext, instance=org.apache.catalina.core.ApplicationContextFacade@2d02a066, constructor=null, factoryName=webMvcConfiguration, factoryMethod=public jakarta.servlet.ServletContext com.yelanyanyu.web.WebMvcConfiguration.servletContext(), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:18.189  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=transactionBeanPostProcessor, beanClass=class com.yelanyanyu.jdbc.transaction.TransactionBeanPostProcessor, instance=com.yelanyanyu.jdbc.transaction.TransactionBeanPostProcessor@72c1bf75, constructor=null, factoryName=jdbcConfiguration, factoryMethod=com.yelanyanyu.jdbc.transaction.TransactionBeanPostProcessor com.yelanyanyu.jdbc.JdbcConfiguration.transactionBeanPostProcessor(), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:18.189  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - bean initialized: BeanDefinition(name=webMvcConfiguration, beanClass=class com.yelanyanyu.web.WebMvcConfiguration, instance=com.yelanyanyu.web.WebMvcConfiguration@43a8bd35, constructor=public com.yelanyanyu.web.WebMvcConfiguration(), factoryName=null, factoryMethod=null, order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)
+2023-12-23 16:42:18.189  INFO  [main] c.y.w.ContextLoaderInitializer - ioc: com.yelanyanyu.context.AnnotationConfigApplicationContext@6fb219dd
+2023-12-23 16:42:18.189  DEBUG [main] c.y.w.ContextLoaderInitializer - filter: com.yelanyanyu.app.filter.Filter_02@570b85dd
+2023-12-23 16:42:18.190  DEBUG [main] c.y.w.ContextLoaderInitializer - filter: Filter_02 registered.
+2023-12-23 16:42:18.190  DEBUG [main] c.y.w.ContextLoaderInitializer - filter: com.yelanyanyu.app.filter.Filter_01@10820978
+2023-12-23 16:42:18.190  DEBUG [main] c.y.w.ContextLoaderInitializer - filter: Filter_01 registered.
+2023-12-23 16:42:18.195  DEBUG [main] c.y.c.AnnotationConfigApplicationContext - defs: [BeanDefinition(name=servletContext, beanClass=interface jakarta.servlet.ServletContext, instance=org.apache.catalina.core.ApplicationContextFacade@2d02a066, constructor=null, factoryName=webMvcConfiguration, factoryMethod=public jakarta.servlet.ServletContext com.yelanyanyu.web.WebMvcConfiguration.servletContext(), order=2147483647, primary=false, init=false, initMethodName=null, destroyMethodName=null, initMethod=null, destoyMethod=null)]
+2023-12-23 16:42:18.195  DEBUG [main] c.y.w.DispatcherServlet - contextPath: 
+2023-12-23 16:42:18.195  DEBUG [main] c.y.i.PropertyResolver - k: winter.web.resource-path, dv: /static/
+2023-12-23 16:42:18.195  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: /static/
+2023-12-23 16:42:18.195  DEBUG [main] c.y.i.PropertyResolver - k: winter.web.favicon-path, dv: /favicon/
+2023-12-23 16:42:18.196  DEBUG [main] c.y.i.PropertyResolver - proExpr: null, dv: /favicon/
+2023-12-23 16:42:18.196  INFO  [main] c.y.w.u.WebUtils - register servlet com.yelanyanyu.web.DispatcherServlet for URL '/'
+2023-12-23 16:42:18.288  DEBUG [HikariPool-1 housekeeper] c.z.h.p.HikariPool - HikariPool-1 - Before cleanup stats (total=1, active=0, idle=1, waiting=0)
+2023-12-23 16:42:18.289  DEBUG [HikariPool-1 housekeeper] c.z.h.p.HikariPool - HikariPool-1 - After cleanup  stats (total=1, active=0, idle=1, waiting=0)
+2023-12-23 16:42:18.289  DEBUG [HikariPool-1 housekeeper] c.z.h.p.HikariPool - HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-12-23 16:42:18.324  INFO  [main] c.y.w.DispatcherServlet - init: com.yelanyanyu.web.DispatcherServlet
+2023-12-23 16:42:18.324  INFO  [main] c.y.w.DispatcherServlet - add REST controller: monsterController 
+2023-12-23 16:42:18.328  DEBUG [main] c.y.w.u.PathUtils - regPath: /get/(?<id>[^/]*)
+2023-12-23 16:42:18.331  DEBUG [main] c.y.w.Dispatcher - mapping /get/{id} to handler MonsterController.findMonsterById
+2023-12-23 16:42:18.332  DEBUG [main] c.y.w.Dispatcher - > param: Param(name=id, paramType=PATH_VARIABLE, classType=class java.lang.Integer, defaultValue=null)
+2023-12-23 16:42:18.445  INFO  [main] c.y.b.WinterApplication - Tomcat started at port 8080...
+2023-12-23 16:42:18.446  INFO  [main] c.y.b.WinterApplication - Started HelloConfiguration in 1.746 seconds (process running for 2.081)

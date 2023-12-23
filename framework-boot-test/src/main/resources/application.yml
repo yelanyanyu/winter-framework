@@ -1,0 +1,6 @@
+winter:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/jiaju?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+    password: 123456

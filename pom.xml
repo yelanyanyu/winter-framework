@@ -10,6 +10,7 @@
         <module>mvc-jdbc</module>
         <module>mvc-aop</module>
         <module>mvc-boot</module>
+        <module>framework-boot-test</module>
     </modules>
     <version>1.0-SNAPSHOT</version>
     <name>winter-framework</name>
